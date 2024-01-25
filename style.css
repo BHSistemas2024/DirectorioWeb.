@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    margin-left: -10px;
+}
+
+body {
+  background-image: url(images/NUEVOS_BANNERS_PAGINA-22_1512x.webp);
+  background-size: cover;
+  background-position: center 100px;
+  background-repeat: no-repeat;
+  color: #000000;
+  font-family: 'Bebas Neue', sans-serif;
+  margin: 0px;
+  height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  min-height: 80px;
+  background-color: #ffffff;
+}
+
+.menu {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo, .menu .navbar ul li a {
+  font-size: 25px;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+.logo {
+  animation: pulse 1s infinite;
+}
+
+.logo:hover, .menu .navbar ul li a:hover {
+  color: #000000;
+  text-shadow: 0 0 5px #FFFFFF, 0 0 25px #FFFFFF, 0 0 50px #FFFFFF, 0 0 100px #FFFFFF;
+}
+
+.menu .navbar ul li a {
+  font-size: 18px;
+  padding: 20px;
+  display: block;
+}
+
+.menu .navbar ul li {
+  position: relative;
+  float: left;
+}
+
+.menu .menu-icono {
+  width: 25px;
+}
+
+.menu label {
+  cursor: pointer;
+  display: none;
+}
+
+#menu {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .content {
+    min-height: 70px;
+  }
+
+  .menu {
+    top: -4px;
+    padding: 20px;
+    background-color: chartreuse;
+  }
+
+  .menu label {
+    display: initial;
+  }
+
+  .menu .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    background-color: #ffffff;
+    width: 100%;
+  }
+
+  .menu .navbar ul li {
+    width: 100%;
+    text-align: center;
+  }
+
+  #menu:checked ~ .navbar {
+    display: initial;
+    margin-left: 1px;
+  }
+  
+  body {
+    background-image: url(images/NUEVOS_BANNERS_PAGINA-22_1512x.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0px; 
+    padding: 0; 
+    height: 100vh; 
+  }  
+  
+}

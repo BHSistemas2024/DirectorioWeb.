@@ -1,0 +1,133 @@
+:root {
+    --main-color: #ffffff;
+    --secondary-color: rgb(255, 255, 255);
+    --table-line-color: #ffffff;
+    --font-main: "Roboto", sans-serif;
+    --font-size-base: 1rem;
+    --font-size-large: 2rem;
+    --font-size-small: 0.75rem;
+    --border-radius: 8px;
+  }
+  
+  body {
+    font-family: sans-serif;
+    color: var(--main-color);
+    line-height: 1.6;
+    font-size: 6px;
+  }
+  
+  .container {
+    max-width: 96%;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    height: 100%;
+    
+  }
+  
+  h1 {
+    font-size: var(--font-size-large);
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 1em;
+    color: var(--main-color);
+    transition: color 0.3s ease-in-out;
+  }
+  
+  h1:hover {
+    color: #fffefe;
+    text-shadow: 0 0 10px #ecf0f1, 0 0 20px #5f4e4e, 0 0 30px #ecf0f1;
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+  
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 1em;
+  }
+  
+  .tbl-header {
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+  
+  .tbl-content {
+    overflow-y: auto;
+    border: 1px solid var(--table-line-color);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+  
+  th {
+    padding: 1em;
+    text-align: center;
+    font-weight: 500;
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
+    border-bottom: solid 1px var(--table-line-color);
+    color: black;
+    cursor: pointer;
+  }
+  
+  th:hover {
+    color: #000000;
+    cursor: pointer;
+    background-color: rgb(142, 168, 154);
+  }
+  
+  td {
+    padding: 1em;
+    text-align: center;
+    font-weight: 300;
+    border-bottom: solid 1px var(--table-line-color); 
+  }
+  
+  @media (max-width: 991px) {
+    body {
+      font-size: 16px;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  
+    table {
+      table-layout: auto;
+      width: 100%;
+      margin-top: 1em;
+    }
+  
+    th, td {
+      display: block;
+      box-sizing: border-box;
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid transparent;
+      margin-bottom: 10px;
+      transition: background-color 0.3s;
+    }
+  
+    th:hover, td:hover {
+      background-color: rgb(0, 0, 0);
+      color: #ffffff;
+    }
+    
+    td:last-child {
+      border-bottom: 1px solid var(--table-line-color);
+      margin-bottom: 0;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
