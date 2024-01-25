@@ -67,7 +67,7 @@ body {
 }
 
 .menu .menu-icono {
-  width: 25px;
+  width: 50px;
 }
 
 .menu label {
@@ -116,11 +116,13 @@ body {
   
   body {
     background-image: url(images/NUEVOS_BANNERS_PAGINA-22_1512x.webp);
-    background-size: contain; 
+    background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Bebas Neue', sans-serif;
     margin: 0px; 
     padding: 0; 
     height: 100vh; 
   }  
+  
 }
+
