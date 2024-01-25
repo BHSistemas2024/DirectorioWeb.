@@ -116,12 +116,11 @@ body {
   
   body {
     background-image: url(images/NUEVOS_BANNERS_PAGINA-22_1512x.webp);
-    background-size: cover;
+    background-size: contain; 
     background-repeat: no-repeat;
     font-family: 'Bebas Neue', sans-serif;
     margin: 0px; 
     padding: 0; 
     height: 100vh; 
   }  
-  
 }
