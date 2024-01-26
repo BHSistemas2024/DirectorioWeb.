@@ -10,21 +10,19 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   color: var(--main-color);
   line-height: 1.6;
-  font-size: 6px;
+  font-size: 10px;
 }
 
 .container {
   max-width: 96%;
   margin: 20px auto;
   padding: 10px;
-  background-color: rgb(0, 0, 0);
+  background-color: #000000d4;
   border-radius: var(--border-radius);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  height: 100%;
-  
 }
 
 h1 {
@@ -39,7 +37,7 @@ h1 {
 
 h1:hover {
   color: #fffefe;
-  text-shadow: 0 0 10px #ecf0f1, 0 0 20px #5f4e4e, 0 0 30px #ecf0f1;
+  text-shadow: 0 0 5px #ecf0f1, 0 0 10px #5f4e4e, 0 0 15px #ecf0f1; /* Suavizado del sombreado */
   cursor: pointer;
   transform: scale(1.05);
 }
@@ -113,20 +111,12 @@ td {
   }
 
   th:hover, td:hover {
-    background-color: rgb(0, 0, 0);
+    background-color: #000000;
     color: #ffffff;
   }
-  
+
   td:last-child {
     border-bottom: 1px solid var(--table-line-color);
     margin-bottom: 0;
   }
 }
-
-
-
-
-
-
-
-
