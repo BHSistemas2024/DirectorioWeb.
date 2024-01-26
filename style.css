@@ -10,9 +10,9 @@
 }
 
 body {
-  background-image: url(images/NUEVOS_BANNERS_PAGINA-22_1512x.webp);
+  background-image: url(images/space.jpg);
   background-size: cover;
-  background-position: center 100px;
+  background-position: center -80px;
   background-repeat: no-repeat;
   color: #000000;
   font-family: 'Bebas Neue', sans-serif;
@@ -67,7 +67,7 @@ body {
 }
 
 .menu .menu-icono {
-  width: 50px;
+    width: 50px;
 }
 
 .menu label {
@@ -87,7 +87,7 @@ body {
   .menu {
     top: -4px;
     padding: 20px;
-    background-color: chartreuse;
+    background-color: rgb(255, 255, 255);
   }
 
   .menu label {
@@ -115,15 +115,14 @@ body {
   }
   
   body {
-    background-image: url(images/NUEVOS_BANNERS_PAGINA-22_1512x.webp);
+    background-image: url(images/space.jpg);
     background-size: cover;
+    background-position: center 86px;
     background-repeat: no-repeat;
     font-family: 'Bebas Neue', sans-serif;
-    margin: 0px; 
-    padding: 0; 
-    height: 100vh; 
-  }  
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+}  
   
 }
-
-
