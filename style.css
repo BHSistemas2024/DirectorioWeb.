@@ -117,12 +117,12 @@ body {
   body {
     background-image: url(images/space.jpg);
     background-size: cover;
-    background-position: center 86px;
+    background-position: -400px center;
     background-repeat: no-repeat;
+    color: #000000;
     font-family: 'Bebas Neue', sans-serif;
     margin: 0px;
-    padding: 0px;
     height: 100vh;
-}  
+  }  
   
 }
