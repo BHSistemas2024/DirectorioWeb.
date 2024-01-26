@@ -10,14 +10,14 @@
 }
 
 body {
-  background-image: url(images/space.jpg);
-  background-size: cover;
-  background-position: center -67px;
-  background-repeat: no-repeat;
-  color: #000000;
-  font-family: 'Bebas Neue', sans-serif;
-  margin: 0px;
-  height: 100vh;
+    background-image: url(images/space.jpg);
+    background-size: cover;
+    background-position: center -59px;
+    background-repeat: no-repeat;
+    color: #000000;
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0px;
+    height: 100vh;
 }
 
 .container {
@@ -117,12 +117,12 @@ body {
     body {
       background-image: url(images/space.jpg);
       background-size: cover;
-      background-position: -400px center;
+      background-position: center;
       background-repeat: no-repeat;
       color: #000000;
       font-family: 'Bebas Neue', sans-serif;
       margin: 0;
-      height: 113vh;
+      height: 100vh;
   }   
   
 }
@@ -164,7 +164,7 @@ body {
   body {
     background-image: url(images/space.jpg);
     background-size: cover;
-    background-position: 0px center;
+    background-position: center;
     background-repeat: no-repeat;
     color: #000000;
     font-family: 'Bebas Neue', sans-serif;
@@ -261,7 +261,7 @@ body {
   body {
     background-image: url(images/space.jpg);
     background-size: cover;
-    background-position: -409px center;
+    background-position: center;
     background-repeat: no-repeat;
     color: #000000;
     font-family: 'Bebas Neue', sans-serif;
