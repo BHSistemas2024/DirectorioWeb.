@@ -39,7 +39,7 @@ h1:hover {
   color: #fffefe;
   text-shadow: 0 0 5px #ecf0f1, 0 0 10px #5f4e4e, 0 0 15px #ecf0f1; /* Suavizado del sombreado */
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.00);
 }
 
 table {
@@ -66,7 +66,7 @@ th {
   font-weight: 500;
   font-size: var(--font-size-small);
   text-transform: uppercase;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.0s ease-in-out;
   border-bottom: solid 1px var(--table-line-color);
   color: black;
   cursor: pointer;
@@ -75,14 +75,14 @@ th {
 th:hover {
   color: #000000;
   cursor: pointer;
-  background-color: rgb(142, 168, 154);
+  background-color: rgb(154, 252, 203);
 }
 
 td {
   padding: 1em;
   text-align: center;
-  font-weight: 300;
-  border-bottom: solid 1px var(--table-line-color); 
+  font-weight: lighter;
+  border-bottom: solid 1px var(--table-line-color);
 }
 
 @media (max-width: 991px) {
@@ -120,6 +120,7 @@ td {
     margin-bottom: 0;
   }
 }
+
 
 
 
