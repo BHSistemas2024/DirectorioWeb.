@@ -117,13 +117,13 @@ body {
     body {
       background-image: url(images/space.jpg);
       background-size: cover;
-      background-position: center -67px;
+      background-position: -400px center;
       background-repeat: no-repeat;
       color: #000000;
       font-family: 'Bebas Neue', sans-serif;
       margin: 0;
-      height: 100vh;
-  }
+      height: 113vh;
+  }   
   
 }
 @media (max-width: 1200px) {
@@ -164,13 +164,15 @@ body {
   body {
     background-image: url(images/space.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: 0px center;
     background-repeat: no-repeat;
     color: #000000;
     font-family: 'Bebas Neue', sans-serif;
     margin: 0;
     height: 100vh;
 }
+
+ 
 
 }
 @media (max-width: 900px) {
@@ -211,7 +213,55 @@ body {
   body {
     background-image: url(images/space.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: -535px center;
+    background-repeat: no-repeat;
+    color: #000000;
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0;
+    height: 117vh;
+}
+
+}
+
+@media (max-width: 320px) {
+  .content {
+      min-height: 70px;
+  }
+
+  .menu {
+      top: -4px;
+      padding: 20px;
+      background-color: rgb(255, 255, 255);
+  }
+
+  .menu label {
+      display: initial;
+  }
+
+  .menu .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      display: none;
+      background-color: #ffffff;
+      width: 100%;
+  }
+
+  .menu .navbar ul li {
+      width: 100%;
+      text-align: center;
+  }
+
+  #menu:checked ~ .navbar {
+      display: initial;
+      margin-left: 1px;
+  }
+
+  body {
+    background-image: url(images/space.jpg);
+    background-size: cover;
+    background-position: -409px center;
     background-repeat: no-repeat;
     color: #000000;
     font-family: 'Bebas Neue', sans-serif;
