@@ -1,5 +1,4 @@
- 
-:root {
+ :root {
   --main-color: #ffffff;
   --secondary-color: rgb(255, 255, 255);
   --table-line-color: #ffffff;
@@ -148,3 +147,4 @@ td {
 ::-webkit-scrollbar-button {
   display: none;
 }
+
