@@ -103,8 +103,8 @@ body {
 }
 
 .whatsapp-container img {
-    width: 80px; /* Ajusta el tamaño del icono según sea necesario */
-    height: 80px;
+    width: 60px;
+    height: 60px;
 }
 
 @media (max-width: 999px) {
@@ -150,8 +150,8 @@ body {
     }
 
     .whatsapp-container img {
-        width: 50px; /* Ajusta el tamaño del icono para pantallas más pequeñas */
-        height: 50px;
+        width: 60px;
+        height: 60px;
     }
 }
 @media (max-width: 991px) {
@@ -197,8 +197,10 @@ body {
     }
 
     .whatsapp-container img {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
 }
+
+
 
