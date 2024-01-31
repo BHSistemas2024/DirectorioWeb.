@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: var(--font-main);
   color: var(--main-color);
   line-height: 1.6;
   font-size: 10px;
@@ -85,7 +85,7 @@ td {
   border-bottom: solid 1px var(--table-line-color);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1299px) {
   body {
     font-size: 16px;
   }
@@ -100,7 +100,8 @@ td {
     margin-top: 1em;
   }
 
-  th, td {
+  th,
+  td {
     display: block;
     box-sizing: border-box;
     padding: 10px;
@@ -110,7 +111,8 @@ td {
     transition: background-color 0.3s;
   }
 
-  th:hover, td:hover {
+  th:hover,
+  td:hover {
     background-color: #000000;
     color: #ffffff;
   }
@@ -148,7 +150,70 @@ td {
   display: none;
 }
 
+@media (max-width: 900px) {
+  body {
+    font-size: 16px;
+  }
 
+  h1 {
+    font-size: 24px;
+  }
+
+  table {
+    table-layout: auto;
+    width: 100%;
+    margin-top: 1em;
+  }
+
+  th,
+  td {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid transparent;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+  }
+
+  th:hover,
+  td:hover {
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  td:last-child {
+    border-bottom: 1px solid var(--table-line-color);
+    margin-bottom: 0;
+  }
+}
+
+/* Estilo para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Estilo para el riel de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background-color: #333;
+  border-radius: 8px;
+}
+
+/* Estilo para el pulgar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background-color: #666;
+  border-radius: 8px;
+}
+
+/* Cambia el color del pulgar al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+
+/* Estilo para los botones de inicio y fin de la barra de desplazamiento */
+::-webkit-scrollbar-button {
+  display: none;
+}
 
 
 
