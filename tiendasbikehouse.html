@@ -17,12 +17,52 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <!-- Agrega la referencia a jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.min.js"></script>
+
 </head>
 
 <body>
 
-    <button id="btnDescargar">Descargar</button>
+<!-- Agrega un contenedor para el ícono y el texto junto al campo de búsqueda -->
+<div class="search-container">
+    <i class="fas fa-search"></i>
+    <span></span>
+    <input type="text" id="searchInput" placeholder="Ingrese su búsqueda...">
+</div>
 
+
+<script>
+    // Función para filtrar la tabla según el valor ingresado en el campo de búsqueda
+    function filterTable() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        table = document.querySelector('.tbl-content table');
+        tr = table.getElementsByTagName("tr");
+        
+        for (i = 0; i < tr.length; i++) {
+            var found = false;
+
+            // Buscar en todas las columnas
+            for (var j = 0; j < tr[i].cells.length; j++) {
+                td = tr[i].cells[j];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        found = true;
+                        break;
+                    }
+                }
+            }
+
+            // Muestra u oculta la fila según si se encontró o no la búsqueda
+            tr[i].style.display = found ? "" : "none";
+        }
+    }
+
+    // Asocia la función al evento de entrada en el campo de búsqueda
+    document.getElementById("searchInput").addEventListener("input", filterTable);
+</script>
 
     <section class="container">
         <h1>TIENDAS BIKEHOUSE</h1>
@@ -836,6 +876,7 @@
                 });
             });
         </script>
+
     </body>
     
     </html>
