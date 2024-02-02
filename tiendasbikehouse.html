@@ -13,9 +13,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style3.css"> 
+    <!-- Agrega la referencia a html2canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- Agrega la referencia a jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
 
 <body>
+
+    <button id="btnDescargar">Descargar</button>
+
 
     <section class="container">
         <h1>TIENDAS BIKEHOUSE</h1>
@@ -45,53 +52,80 @@
                         <td>POBLADO</td>
                         <td>JULIAN GUERRA</td>
                         <td>3207085114</td>
-                        <td>poblado@bikehouse.com.co</td>
-                        <td>CARRERA 43A #31-193, MEDELLÍN</td>
+                        <td class="email-cell">
+                            <span>poblado@</span>
+                            <span style="display: block;">bikehouse.com.co</span>
+                        </td>                        
+                        <td class="address-cell">
+                            <span>CARRERA 43A #31-193,</span>
+                            <span style="display: block;">MEDELLÍN</span>
+                        </td>                        
                         <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
+                    </tr>                    
                     <tr>
                         <td>ANTIOQUIA</td>
                         <td>TESORO</td>
                         <td>ANDRES HERRERA</td>
                         <td>3173514192</td>
-                        <td>bikehousetesoro@bikehouse.com.co</td>
-                        <td>Centro Comercial El Tesoro, Local 6115, Sótano Norte, Medellín</td>
+                        <td>
+                            bikehousetesoro
+                            <span style="display: block;">@bikehouse.com.co</span> <!-- Utilizando un <span> con estilos CSS -->
+                            <td class="address-cell">
+                                <span>CENTRO COMERCIAL EL TESORO LOCAL 6115</span>
+                                <span style="display: block;">SOTANO NORTE, MEDELLÍN</span>                       
                         <td></td>
                     </tr>
+                                       
                     <tr>
                         <td>ANTIOQUIA</td>
                         <td>LLANOGRANDE</td>
                         <td>JUAN PABLO GOMEZ SALINAS</td>
                         <td>3143965199</td>
-                        <td>llanogrande@bikehouse.com.co</td>
-                        <td>Sector Kilómetro 15, Sector La Amalita, Contiguo a Mall Plaza Linares, Rionegro</td>
+                        <td class="email-cell">
+                            <span>llanogrande@</span>
+                            <span style="display: block;">bikehouse.com.co</span>
+                            <td class="address-cell">
+                                <span>Sector Kilómetro 15, Sector La Amalita,</span>
+                                <span>Contiguo a Mall Plaza Linares, Rionegro</span>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
+                    </tr>                    
                     <tr>
                         <td>ANTIOQUIA</td>
                         <td>ENVIGADO</td>
                         <td>HECTOR ALONSO GIRALDO</td>
                         <td>3184666405</td>
-                        <td>envigado@<br>bikehouse.com.co</td>
-                        <td>Calle 37 Sur #37-49, Medellín, Antioquia, Colombia</td>
+                        <td class="email-cell">
+                            <span>envigado@</span>
+                            <span style="display: block;">bikehouse.com.co</span>                    
+                        <td class="address-cell">
+                            <span>CALLE 37 SUR #37-49</span>
+                            <span style="display: block;">MEDELLÍN, ANTIOQUIA, COLOMBIA</span>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
+                    </tr>                    
                     <tr>
                         <td>ANTIOQUIA</td>
                         <td>INDIANA</td>
                         <td>JORDAN BUSTAMANTE</td>
                         <td>3184761255</td>
-                        <td>indiana@bikehouse.co</td>
-                        <td>Glorieta Sancho Paisa, Acceso Mall Indiana #Local 104, Vereda El Peñasco, Envigado, Antioquia, 050021, Colombia</td>
+                        <td class="email-cell">
+                            <span>indiana@</span>
+                            <span style="display: block;">bikehouse.co</span>                    
+                        <td class="address-cell">
+                            <span>Glorieta Sancho Paisa, Acceso Mall Indiana #Local 104</span>
+                            <span style="display: block;">Vereda El Peñasco, Envigado, Antioquia, 050021, Colombia</span>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
+                    </tr>                    
                     <tr>
                         <td>ANTIOQUIA</td>
                         <td>PALMAS</td>
                         <td>ANDERSON AGUDELO</td>
                         <td>3168776091</td>
-                        <td>palmas@bikehouse.co</td>
-                        <td>Carrera 10 #10 A 21, Medellín, Antioquia, Colombia</td>
+                        <td class="email-cell">
+                            <span>palmas@</span>
+                            <span style="display: block;">bikehouse.co</span>                       
+                             <td class="address-cell">
+                            <span>CARRERA 10 #10 A 21</span>
+                            <span style="display: block;">MEDELLÍN, ANTIOQUIA, COLOMBIA</span></td>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
                     </tr>
                     <tr>
@@ -99,8 +133,12 @@
                         <td>PEREIRA</td>
                         <td>PATRICIA ALZATE</td>
                         <td>3112007814</td>
-                        <td>sanantonio@bikehouse.co</td>
-                        <td>Cra 55 b No 17-29 local 7 Mall san Bartolo San Antonio de Pereira</td>
+                        <td class="email-cell">
+                            <span>sanantonio@</span>
+                            <span style="display: block;">bikehouse.co</span>                       
+                            <td class="address-cell">
+                                <span>Cra 55 b No 17-29 local 7 Mall San Bartolo</span>
+                                <span style="display: block;">San Antonio de Pereira</span>
                         <td></td>
                     </tr>
                     <tr>
@@ -108,8 +146,12 @@
                         <td>LA CEJA</td>
                         <td>MONICA TORO</td>
                         <td>3183412428</td>
-                        <td>ceja@bikehouse.co</td>
-                        <td>Calle 19 #12-47, La Ceja, Antioquia, Colombia</td>
+                        <td class="email-cell">
+                            <span>ceja@</span>
+                            <span style="display: block;">bikehouse.co</span>                       
+                        <td class="address-cell">
+                            <span>Calle 19 #12-47</span>
+                            <span style="display: block;">La Ceja, Antioquia, Colombia</span>
                         <td></td>
                     </tr>
                     <tr>
@@ -117,9 +159,13 @@
                         <td>DREAM MEDELLIN</td>
                         <td>FERNANDA CASTRILLON</td>
                         <td>3182693147</td>
-                        <td>dreammedellin
-                            @bikehouse.co</td>
-                        <td>Carrera 34 #16A Sur-25, Medellín, Antioquia, Colombia</td>
+                        <td class="email-cell">
+                            <span>dreammedellin@</span>
+                            <span style="display: block;">bikehouse.co</span>
+                        </td>                        
+                        <td class="address-cell">
+                            <span>CARRERA 34 #16A SUR-25</span>
+                            <span style="display: block;">MEDELLÍN, ANTIOQUIA, COLOMBIA</span>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
                     </tr>
                     <tr>
@@ -127,10 +173,27 @@
                         <td>JARDINES DE LLANOGRANDE</td>
                         <td>PAULA VANEGAS</td>
                         <td>3182801150</td>
-                        <td>bhjardines@bikehouse.co</td>
-                        <td>Kilómetro 8 Vía Don Diego, Vereda 3 Puertas, Parque Comercial Jardines, Local 100, Medellín</td>
+                        <td class="email-cell">
+                            <span>bhjardines@</span>
+                            <span style="display: block;">bikehouse.co</span>                       
+                        <td class="address-cell">
+                            <span>KILOMETRO 8 VIA DON DIEGO, VEREDA 3 PUERTAS</span>
+                            <span style="display: block;">PARQUE COMERCIAL JARDINES LOCAL 100, MEDELLÍN</span>
                         <td></td>
-                    </tr>
+                    </tr> 
+                    <tr>
+                        <td>ANTIOQUIA</td>
+                        <td>APARTADO</td>
+                        <td>SANTIAGO MUÑOZ</td>
+                        <td>3174319329 - 3113950041</td>
+                        <td class="email-cell">
+                            <span>apartado@</span>
+                            <span style="display: block;">bikehouse.com.co</span>                        
+                        <td class="address-cell">
+                            <span>CALLE 99A N103 45</span>
+                            <span style="display: block;">APARTADO, ANTIOQUIA, COLOMBIA</span>
+                        <td></td>
+                    </tr>                   
                 </tbody>
               </table>
             </div>
@@ -139,395 +202,640 @@
           <section class="container aym">
             <h1>CARIBE</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                  <tr>
-                        <td>CARIBE</td>
-                        <td>BARRANQUILLA</td>
-                        <td>JESUS PINZON</td>
-                        <td>3144651365</td>
-                        <td>barranquilla
-                            @bikehouse.com.co</td>
-                        <td>Calle 84 #53-55, Barranquilla, Atlántico, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>CARIBE</td>
-                        <td>MONTERÍA</td>
-                        <td>JAIME HERNANDEZ</td>
-                        <td>3184282546</td>
-                        <td>monteria@bikehouse.co</td>
-                        <td>Carrera 2 #45-775, Montería, Córdoba, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>CARIBE</td>
-                        <td>CARTAGENA</td>
-                        <td>JUAN CAMILO TORRES PEREZ</td>
-                        <td>3185170162</td>
-                        <td>cartagena@bikehouse.co</td>
-                        <td>Carrera 2 #9-148, Bocagrande, Cartagena, Bolívar, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>CARIBE</td>
-                        <td>SANTA MARTA</td>
-                        <td>LEONARDO FERNÁNDEZ</td>
-                        <td>3173414617</td>
-                        <td>santamarta@bikehouse.co</td>
-                        <td>Avenida del Ferrocarril #29-200, Santa Marta, Magdalena, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>CARIBE</td>
-                        <td>VALLEDUPAR</td>
-                        <td>CRISTIAN LONDOÑO</td>
-                        <td>3153501182</td>
-                        <td>valledupar@bikehouse.co</td>
-                        <td>Carrera 13 #9 C-06, Valledupar, Cesar, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Barranquilla -->
+                        <tr>
+                            <td>CARIBE</td>
+                            <td>BARRANQUILLA</td>
+                            <td>JESUS PINZON</td>
+                            <td>3144651365</td>
+                            <td class="email-cell">
+                                <span>barranquilla@</span>
+                                <span style="display: block;">bikehouse.com.co</span>                           
+                            <td class="address-cell">
+                                <span>CALLE 84 #53-55</span>
+                                <span style="display: block;">BARRANQUILLA, ATLÁNTICO, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Montería -->
+                        <tr>
+                            <td>CARIBE</td>
+                            <td>MONTERÍA</td>
+                            <td>JAIME HERNANDEZ</td>
+                            <td>3184282546</td>
+                            <td class="email-cell">
+                                <span>monteria@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 2 #45-775</span>
+                                <span style="display: block;">MONTERÍA, CÓRDOBA, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Cartagena -->
+                        <tr>
+                            <td>CARIBE</td>
+                            <td>CARTAGENA</td>
+                            <td>JUAN CAMILO TORRES PEREZ</td>
+                            <td>3185170162</td>
+                            <td class="email-cell">
+                                <span>cartagena@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 2 #9-148 BOCAGRANDE</span>
+                                <span style="display: block;">CARTAGENA, BOLÍVAR, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Santa Marta -->
+                        <tr>
+                            <td>CARIBE</td>
+                            <td>SANTA MARTA</td>
+                            <td>LEONARDO FERNÁNDEZ</td>
+                            <td>3173414617</td>
+                            <td class="email-cell">
+                                <span>santamarta@</span>
+                                <span style="display: block;">bikehouse.co</span>                        
+                            <td class="address-cell">
+                                <span>AVENIDA DEL FERROCARRIL #29-200</span>
+                                <span style="display: block;">SANTA MARTA, MAGDALENA, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Valledupar -->
+                        <tr>
+                            <td>CARIBE</td>
+                            <td>VALLEDUPAR</td>
+                            <td>CRISTIAN LONDOÑO</td>
+                            <td>3153501182</td>
+                            <td class="email-cell">
+                                <span>valledupar@</span>
+                                <span style="display: block;">bikehouse.co</span>                         
+                            <td class="address-cell">
+                                <span>CARRERA 13 #9 C-06</span>
+                                <span style="display: block;">VALLEDUPAR, CESAR, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
+        </section>
+        
 
-          <section class="container aym">
+        <section class="container aym">
             <h1>CUNDINAMARCA</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>CARRERA 15</td>
-                        <td>SOIRET PALACIO</td>
-                        <td>3183306650</td>
-                        <td>bogotacra15
-                            @bikehouse.co</td>
-                        <td>Carrera 15 #106-55, Bogotá, Cundinamarca, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>SALITRE</td>
-                        <td>EDWIN RODRIGUEZ VACA</td>
-                        <td>3155298549</td>
-                        <td>salitre@bikehouse.co</td>
-                        <td>Carrera 68 #45-88, Bogotá, Cundinamarca, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>CHÍA</td>
-                        <td>JENY CAROLINA SALAMANCA</td>
-                        <td>3144595305</td>
-                        <td>chia@bikehouse.com.co</td>
-                        <td>Avenida Pradilla #5-31, Chía, Local 125, Centro Comercial Plaza Mayor, Cundinamarca, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>PLAZA CENTRAL</td>
-                        <td>CARLOS REYES</td>
-                        <td>3214809300</td>
-                        <td>bhplazacentral
-                            @bikehouse.co</td>
-                        <td>Carrera 65 #11-50, Local 1-31 Piso 1, Bogotá, Cundinamarca, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>ZONA T</td>
-                        <td>Johan Felipe Ferro</td>
-                        <td>3138611189</td>
-                        <td>zonat@bikehouse.co</td>
-                        <td>Carrera 14A #82-27, Primer Piso, Bogotá, Cundinamarca, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>Bike House 127</td>
-                        <td>JHONATAN VILLADIEGO</td>
-                        <td>13586548</td>
-                        <td>bogota127
-                            @bikehouse.com.co</td>
-                        <td>Avenida Calle 127 #13A-54, Local 105, Usaquén, Bogotá, Cundinamarca</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>AV. BOYACÁ</td>
-                        <td>WILSON SOTO</td>
-                        <td>3167420220</td>
-                        <td>avenidaboyaca
-                            @bikehouse.co</td>
-                        <td>Avenida Boyacá #99-44, Bogotá, Cundinamarca, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>GIRARDOT</td>
-                        <td>GUILLERMO PERALTA</td>
-                        <td>3168780855</td>
-                        <td>bikehousegirardot64
-                            @gmail.com</td>
-                        <td>Calle 22 #6-59, Barrio San Antonio, Girardot, Cundinamarca, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>CUNDINAMARCA</td>
-                        <td>DREAM BOGOTÁ</td>
-                        <td>MARIA CAMILA FAJARDO</td>
-                        <td>3162733814</td>
-                        <td>bhdreams@bikehouse.co</td>
-                        <td>Avenida Calle 116 #15-44, Bogotá, Cundinamarca, Colombia</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Carrera 15 -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>CARRERA 15</td>
+                            <td>SOIRET PALACIO</td>
+                            <td>3183306650</td>
+                            <td class="email-cell">
+                                <span>bogotacra15@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 15 #106-55</span>
+                                <span style="display: block;">BOGOTÁ, CUNDINAMARCA, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Salitre -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>SALITRE</td>
+                            <td>EDWIN RODRIGUEZ VACA</td>
+                            <td>3155298549</td>
+                            <td class="email-cell">
+                                <span>salitre@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>Carrera 68 #45-88</span>
+                                <span style="display: block;">Bogotá, Cundinamarca, Colombia</span>
+                            </td>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Chía -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>CHÍA</td>
+                            <td>JENY CAROLINA SALAMANCA</td>
+                            <td>3144595305</td>
+                            <td class="email-cell">
+                                <span>chia@</span>
+                                <span style="display: block;">bikehouse.com.co</span>
+                            </td>                            
+                            <td class="address-cell">
+                                <span>AVENIDA PRADILLA #5 -31</span>
+                                <span style="display: block;">CHIA LOCAL 125, CENTRO COMERCIAL PLAZA MAYOR, CHIA CUNDINAMARCA, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Plaza Central -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>PLAZA CENTRAL</td>
+                            <td>CARLOS REYES</td>
+                            <td>3214809300</td>
+                            <td class="email-cell">
+                                <span>bhplazacentral@</span>
+                                <span style="display: block;">bikehouse.co</span>                         
+                            <td class="address-cell">
+                                <span>CARRERA 65 #11-50 (ENTRE LA AVENIDA DE LAS AMERICAS Y CALLE 13) LOCAL 1-31 PISO 1</span>
+                                <span style="display: block;">BOGOTÁ, CUNDINAMARCA, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Zona T -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>ZONA T</td>
+                            <td>Johan Felipe Ferro</td>
+                            <td>3138611189</td>
+                            <td class="email-cell">
+                                <span>zonat@</span>
+                                <span style="display: block;">bikehouse.co</span>                          
+                            <td class="address-cell">
+                                <span>CARRERA 14 A #82-27 PRIMER PISO</span>
+                                <span style="display: block;">BOGOTÁ, CUNDINAMARCA, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Bike House 127 -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>Bike House 127</td>
+                            <td>JHONATAN VILLADIEGO</td>
+                            <td>13586548</td>
+                            <td class="email-cell">
+                                <span>bogota127@</span>
+                                <span style="display: block;">bikehouse.com.co</span>                          
+                            <td class="address-cell">
+                                <span>Avenida Calle 127 #13A-54, Local 105</span>
+                                <span style="display: block;">Usaquén, Bogotá, Cundinamarca</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Av. Boyacá -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>AV. BOYACÁ</td>
+                            <td>WILSON SOTO</td>
+                            <td>3167420220</td>
+                            <td class="email-cell">
+                                <span>avenidaboyaca@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>AVENIDA BOYACA #99-44</span>
+                                <span style="display: block;">BOGOTÁ, CUNDINAMARCA, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Girardot -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>GIRARDOT</td>
+                            <td>GUILLERMO PERALTA</td>
+                            <td>3168780855</td>
+                            <td class="email-cell">
+                                <span>bikehousegirardot64@</span>
+                                <span style="display: block;">gmail.com</span>                          
+                            <td class="address-cell">
+                                <span>CALLE 22 #6-59 BARRIO SAN ANTONIO</span>
+                                <span style="display: block;">GIRARDOT, CUNDINAMARCA, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Dream Bogotá -->
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>DREAM BOGOTÁ</td>
+                            <td>MARIA CAMILA FAJARDO</td>
+                            <td>3162733814</td>
+                            <td class="email-cell">
+                                <span>bhdreams@</span>
+                                <span style="display: block;">bikehouse.co</span>                       
+                            <td class="address-cell">
+                                <span>AVENIDA CALLE 116 #15-44</span>
+                                <span style="display: block;">BOGOTÁ, CUNDINAMARCA, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>CUNDINAMARCA</td>
+                            <td>CAJICA</td>
+                            <td>LEONARDO FISCO RODRIGUEZ</td>
+                            <td>3173514252</td>
+                            <td class="email-cell">
+                                <span>cliffcajica@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 5 #4 A 79 LOCAL 1-103 CONJUNTO MIXTO PIETRA PH</span>
+                                <span style="display: block;">CAJICÁ, CUNDINAMARCA, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
+        </section>
+        
 
-          <section class="container aym">
+        <section class="container aym">
             <h1>EJE CAFETERO</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>EJE CAFETERO</td>
-                        <td>ARMENIA</td>
-                        <td>DIEGO MAURICIO SUCERQUIA</td>
-                        <td>3143986251</td>
-                        <td>armenia
-                            @bikehouse.com.co</td>
-                        <td>Carrera 14 Avenida Bolívar #8 Norte-31, Armenia, Eje Cafetero, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>EJE CAFETERO</td>
-                        <td>PEREIRA</td>
-                        <td>GEOBERTTY OSPINA</td>
-                        <td>3143956242</td>
-                        <td>pereira@bikehouse.com.co</td>
-                        <td>Calle 14 #13-82, Local 1, Sector Invico, Pereira, Eje Cafetero, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>EJE CAFETERO</td>
-                        <td>MANIZALES</td>
-                        <td>JAIME GAMBOA</td>
-                        <td>3184283087</td>
-                        <td>bikehousemanizales
-                            @bikehouse.co</td>
-                        <td>Carrera 23 #55A-35, Local 1, Manizales, Caldas, Colombia</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Armenia -->
+                        <tr>
+                            <td>EJE CAFETERO</td>
+                            <td>ARMENIA</td>
+                            <td>DIEGO MAURICIO SUCERQUIA</td>
+                            <td>3143986251</td>
+                            <td class="email-cell">
+                                <span>armenia@</span>
+                                <span style="display: block;">bikehouse.com.co</span>                          
+                            <td class="address-cell">
+                                <span>CARRERA 14 AVENIDA BOLIVAR #8 NORTE-31</span>
+                                <span style="display: block;">ARMENIA, EJE CAFETERO, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Pereira -->
+                        <tr>
+                            <td>EJE CAFETERO</td>
+                            <td>PEREIRA</td>
+                            <td>GEOBERTTY OSPINA</td>
+                            <td>3143956242</td>
+                            <td class="email-cell">
+                                <span>pereira@</span>
+                                <span style="display: block;">bikehouse.com.co</span>                          
+                            <td class="address-cell">
+                                <span>CALLE 14 #13-82 LOCAL 1 SECTOR INVICO</span>
+                                <span style="display: block;">PEREIRA, EJE CAFETERO, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Manizales -->
+                        <tr>
+                            <td>EJE CAFETERO</td>
+                            <td>MANIZALES</td>
+                            <td>JAIME GAMBOA</td>
+                            <td>3184283087</td>
+                            <td class="email-cell">
+                                <span>bikehousemanizales@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 23 #55A-35 LOCAL 1</span>
+                                <span style="display: block;">MANIZALES, CALDAS, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
+        </section>
+        
 
-          <section class="container aym">
+        <section class="container aym">
             <h1>NORTE DE SANTANDER</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>Norte de Santander</td>
-                        <td>BUCARAMANGA CENTRO</td>
-                        <td>CESAR QUEVEDO</td>
-                        <td>3173515198</td>
-                        <td>bucaramangacentro
-                            @bikehouse.co</td>
-                        <td>Carrera 18 #22-05, Piso 1, Bucaramanga Centro, Santander, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Norte de Santander</td>
-                        <td>CÚCUTA</td>
-                        <td>JUAN GABRIEL GONZALEZ</td>
-                        <td>3182349899</td>
-                        <td>cucuta@bikehouse.com.co</td>
-                        <td>Avenida 0 #20-37, Cúcuta, Santander, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>Norte de Santander</td>
-                        <td>BUCARAMANGA</td>
-                        <td>FREDY ALONSO MONCADA TORRES</td>
-                        <td>3212088453</td>
-                        <td>bucaramanga
-                            @bikehouse.co</td>
-                        <td>Calle 34 #32-69, Bucaramanga, Santander, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>Norte de Santander</td>
-                        <td>FLORIDA BLANCA</td>
-                        <td>JIMMY ANDRES GUALDRON</td>
-                        <td>3152399525</td>
-                        <td>bikehousefloridablanca
-                            @bikehouse.co</td>
-                        <td>Diagonal 30 #29-19, Florida Blanca, Santander, Colombia</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Bucaramanga Centro -->
+                        <tr>
+                            <td>Norte de Santander</td>
+                            <td>BUCARAMANGA CENTRO</td>
+                            <td>CESAR QUEVEDO</td>
+                            <td>3173515198</td>
+                            <td class="email-cell">
+                                <span>bucaramangacentro@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 18 #22-05 PISO 1</span>
+                                <span style="display: block;">BUCARAMANGA CENTRO, SANTANDER, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Cúcuta -->
+                        <tr>
+                            <td>Norte de Santander</td>
+                            <td>CÚCUTA</td>
+                            <td>JUAN GABRIEL GONZALEZ</td>
+                            <td>3182349899</td>
+                            <td class="email-cell">
+                                <span>cucuta@</span>
+                                <span style="display: block;">bikehouse.com.co</span>                          
+                            <td class="address-cell">
+                                <span>AVENIDA 0 #20-37</span>
+                                <span style="display: block;">CÚCUTA, NORTE DE SANTANDER, COLOMBIA</span>
+                            </td>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Bucaramanga -->
+                        <tr>
+                            <td>Norte de Santander</td>
+                            <td>BUCARAMANGA</td>
+                            <td>FREDY ALONSO MONCADA TORRES</td>
+                            <td>3212088453</td>
+                            <td class="email-cell">
+                                <span>bucaramanga@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CALLE 34 #32-69</span>
+                                <span style="display: block;">BUCARAMANGA, SANTANDER, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Florida Blanca -->
+                        <tr>
+                            <td>Norte de Santander</td>
+                            <td>FLORIDA BLANCA</td>
+                            <td>JIMMY ANDRES GUALDRON</td>
+                            <td>3152399525</td>
+                            <td class="email-cell">
+                                <span>bikehousefloridablanca@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>DIAGONAL 30 #29-19</span>
+                                <span style="display: block;">FLORIDA BLANCA, SANTANDER, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
+        </section>
+        
 
-          <section class="container aym">
-            <h1>SUR DEL PAIS</h1>
+        <section class="container aym">
+            <h1>SUR DEL PAÍS</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>SUR PAIS</td>
-                        <td>CALI NORTE</td>
-                        <td>JOHN LOPEZ</td>
-                        <td>3182405967</td>
-                        <td>bikehousecali@bikehouse. com.co</td>
-                        <td>Avenida 6 Norte #38-78, Cali, Valle de Cauca, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>SUR PAIS</td>
-                        <td>CALI SUR</td>
-                        <td>CARLOS NIÑO</td>
-                        <td>3138481253</td>
-                        <td>calisur@bikehouse.com.co</td>
-                        <td>Carrera 66 #10-66, Cali, Valle del Cauca, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                    <tr>
-                        <td>SUR PAIS</td>
-                        <td>TULUÁ</td>
-                        <td>LUIS EDUARDO TORRES</td>
-                        <td>3152573832</td>
-                        <td>tulua@bikehouse.co</td>
-                        <td>Centro Comercial Tuluá La 14, Local 54, Tuluá, Valle del Cauca, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>SUR PAIS</td>
-                        <td>BUGA</td>
-                        <td>MIGUEL ANDRES ROJAS</td>
-                        <td>3138322905</td>
-                        <td>buga@bikehouse.co</td>
-                        <td>Carrera 8 #10-15, Comuna 3, Buga, Valle del Cauca, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>SUR PAIS</td>
-                        <td>POPAYAN</td>
-                        <td>BRIAN FELIPE PALECHOR</td>
-                        <td>3183413744</td>
-                        <td>bhpopayan@bikehouse.co</td>
-                        <td>Carrera 9 #24A-21, Interior 97, Popayán, Cauca, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>SUR PAIS</td>
-                        <td>PASTO</td>
-                        <td>ALEJANDRO MERA</td>
-                        <td>3166223150</td>
-                        <td>pasto@bikehouse.co</td>
-                        <td>Avenida Panamericana #26-184, Pasto, Nariño, Colombia</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>SUR PAIS</td>
-                        <td>CALI CENTRO</td>
-                        <td>ERIKA MOSQUERA </td>
-                        <td>3168216337</td>
-                        <td>calicentro@bikehouse.co</td>
-                        <td>Carrera 8 #21-43, Cali, Valle del Cauca, Colombia</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Cali Norte -->
+                        <tr>
+                            <td>SUR PAÍS</td>
+                            <td>CALI NORTE</td>
+                            <td>JOHN LOPEZ</td>
+                            <td>3182405967</td>
+                            <td class="email-cell">
+                                <span>bikehousecali@</span>
+                                <span style="display: block;">bikehouse.com.co</span>                          
+                            <td class="address-cell">
+                                <span>AVENIDA 6 NORTE #38-78</span>
+                                <span style="display: block;">CALI, VALLE DE CAUCA, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Cali Sur -->
+                        <tr>
+                            <td>SUR PAÍS</td>
+                            <td>CALI SUR</td>
+                            <td>CARLOS NIÑO</td>
+                            <td>3138481253</td>
+                            <td class="email-cell">
+                                <span>calisur@</span>
+                                <span style="display: block;">bikehouse.com.co</span>                          
+                            <td class="address-cell">
+                                <span>CARRERA 66 #10-66</span>
+                                <span style="display: block;">CALI, VALLE DEL CAUCA, COLOMBIA</span>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+        
+                        <!-- Tuluá -->
+                        <tr>
+                            <td>SUR PAÍS</td>
+                            <td>TULUÁ</td>
+                            <td>LUIS EDUARDO TORRES</td>
+                            <td>3152573832</td>
+                            <td class="email-cell">
+                                <span>tulua@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CENTRO COMERCIAL TULUA LA 14, LOCAL 54</span>
+                                <span style="display: block;">TULUÁ, VALLE DEL CAUCA, COLOMBIA</span>
+                            </td>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Buga -->
+                        <tr>
+                            <td>SUR PAÍS</td>
+                            <td>BUGA</td>
+                            <td>MIGUEL ANDRES ROJAS</td>
+                            <td>3138322905</td>
+                            <td class="email-cell">
+                                <span>buga@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>Carrera 8 #10-15</span>
+                                <span style="display: block;">Comuna 3, Buga, Valle del Cauca, Colombia</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Popayán -->
+                        <tr>
+                            <td>SUR PAÍS</td>
+                            <td>POPAYAN</td>
+                            <td>BRIAN FELIPE PALECHOR</td>
+                            <td>3183413744</td>
+                            <td class="email-cell">
+                                <span>bhpopayan@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 9 #24 A-21, INTERIOR 97</span>
+                                <span style="display: block;">POPAYÁN, CAUCA, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Pasto -->
+                        <tr>
+                            <td>SUR PAÍS</td>
+                            <td>PASTO</td>
+                            <td>ALEJANDRO MERA</td>
+                            <td>3166223150</td>
+                            <td class="email-cell">
+                                <span>pasto@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>AVENIDA PANAMERICANA #26-184</span>
+                                <span style="display: block;">PASTO, NARIÑO, COLOMBIA</span>
+                            <td></td>
+                        </tr>
+        
+                        <!-- Cali Centro -->
+                        <tr>
+                            <td>SUR PAÍS</td>
+                            <td>CALI CENTRO</td>
+                            <td>ERIKA MOSQUERA</td>
+                            <td>3168216337</td>
+                            <td class="email-cell">
+                                <span>calicentro@</span>
+                                <span style="display: block;">bikehouse.co</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 8 #21-43</span>
+                                <span style="display: block;">CALI, VALLE DEL CAUCA, COLOMBIA</span>
+                                </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
+        </section>
+        
+        
 
-          <section class="container aym">
+        <section class="container aym">
             <h1>HUILA</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>HUILA</td>
-                        <td>NEIVA</td>
-                        <td>LINA FERNANDA SANCHEZ</td>
-                        <td>3152716659</td>
-                        <td>neiva@bikehouse.co</td>
-                        <td>Calle 7 #14-02, Sector Altico, Neiva, Huila, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Neiva -->
+                        <tr>
+                            <td>HUILA</td>
+                            <td>NEIVA</td>
+                            <td>LINA FERNANDA SANCHEZ</td>
+                            <td>3152716659</td>
+                            <td class="email-cell">
+                                <span>neiva@</span>
+                                <span style="display: block;">bikehouse.co</span>                          
+                            <td class="address-cell">
+                                <span>CALLE 7 # 14-02 SECTOR ALTICO</span>
+                                <span style="display: block;">HUILA, NEIVA, COLOMBIA</span>
+                                </td>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
+        </section>
+        
 
-          <section class="container aym">
+        <section class="container aym">
             <h1>TOLIMA</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>TOLIMA</td>
-                        <td>IBAGUÉ</td>
-                        <td>CESAR AVILA</td>
-                        <td>3214809296</td>
-                        <td>ibague@bikehouse.co</td>
-                        <td>Avenida 8A #16-06, Interlak, Ibagué, Tolima, Colombia</td>
-                        <td>CUENTA CON SERVICIO DE TALLER</td>
-                    </tr>
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Ibagué -->
+                        <tr>
+                            <td>TOLIMA</td>
+                            <td>IBAGUÉ</td>
+                            <td>CESAR AVILA</td>
+                            <td>3214809296</td>
+                            <td class="email-cell">
+                                <span>bikehouseibague.admon@</span>
+                                <span style="display: block;">gmail.com</span>                         
+                            <td class="address-cell">
+                                <span>AVENIDA 8 A #16-06 INTERLAK</span>
+                                <span style="display: block;">IBAGUÉ, TOLIMA, COLOMBIA</span>
+                                </td>
+                            <td>CUENTA CON SERVICIO DE TALLER</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
+        </section>
+        
 
-          <section class="container aym">
+        <section class="container aym">
             <h1>YOPAL</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    /*
-                    <tr>
-                        <td>YOPAL</td>
-                        <td>YOPAL</td>
-                        <td>GUSTAVO DIAZ</td>
-                        <td>3138590852</td>
-                        <td>bikehouseyopal
-                            @gmail.com</td>
-                        <td>Carrera 29 #18-92, Yopal, Casanare, Colombia</td>
-                        <td></td>
-                    </tr> */ 
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Yopal -->
+                        <tr>
+                            <td>YOPAL</td>
+                            <td>YOPAL</td>
+                            <td>GUSTAVO DIAZ</td>
+                            <td>3138590852</td>
+                            <td class="email-cell">
+                                <span>bikehouseyopal@</span>
+                                <span style="display: block;">gmail.com</span>                           
+                            <td class="address-cell">
+                                <span>CARRERA 29 #18-92</span>
+                                <span style="display: block;">YOPAL, CASANARE, COLOMBIA</span>
+                                </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
+        </section>
+        
 
-          <section class="container aym">
-            <h1>BOYACA</h1>
+        <section class="container aym">
+            <h1>BOYACÁ</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>BOYACA</td>
-                        <td>TUNJA</td>
-                        <td>ANTONIO ALARCON</td>
-                        <td>3167540703</td>
-                        <td>tunja@bikehouse.co</td>
-                        <td>Avenida Olímpica #1-22, Edificio Artek, Local 8, Tunja, Boyacá, Colombia</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-              </table>
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        <!-- Tunja -->
+                        <tr>
+                            <td>BOYACÁ</td>
+                            <td>TUNJA</td>
+                            <td>ANTONIO ALARCON</td>
+                            <td>3167540703</td>
+                            <td class="email-cell">
+                                <span>tunja@</span>
+                                <span style="display: block;">bikehouse.co</span>                          
+                            <td class="address-cell">
+                                <span>AVENIDA OLIMPICA #1 -22 EDIFICIO ARTEK LOCAL 8</span>
+                                <span style="display: block;">TUNJA, BOYACÁ, COLOMBIA</span>
+                                </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-          </section>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
+        </section>
 
-</html>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="script3.js"></script>
+    
+        <!-- Script para la descarga del PDF -->
+        <script>
+            document.getElementById('btnDescargar').addEventListener('click', function () {
+                console.log("Botón presionado");
+    
+                // Deshabilitar el botón para evitar clics múltiples
+                document.getElementById('btnDescargar').disabled = true;
+    
+                // Crea un objeto jsPDF
+                var pdf = new jsPDF('p', 'mm', 'a4');
+    
+                // Captura el contenido de la sección
+                html2canvas(document.querySelector('.container')).then(canvas => {
+                    var imgData = canvas.toDataURL("image/png");
+                    var imgWidth = 210;
+                    var pageHeight = 295;
+                    var imgHeight = (canvas.height * imgWidth) / canvas.width;
+                    var heightLeft = imgHeight;
+                    var position = 0;
+    
+                    // Agrega la imagen al PDF en varias partes
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+    
+                    while (heightLeft >= 0) {
+                        position = heightLeft - imgHeight;
+                        pdf.addPage();
+                        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                        heightLeft -= pageHeight;
+                    }
+    
+                    // Guarda el PDF con el nombre deseado
+                    pdf.save('tiendasbikehouse.pdf');
+    
+                    console.log("PDF generado");
+    
+                    // Habilitar el botón después de completar la operación
+                    document.getElementById('btnDescargar').disabled = false;
+                });
+            });
+        </script>
+    </body>
+    
+    </html>
