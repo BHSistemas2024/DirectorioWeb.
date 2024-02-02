@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,700&family=Roboto&family=Roboto+Condensed&display=swap');
+
+
 :root {
   --main-color: #ffffff;
-  --secondary-color: rgb(255, 255, 255);
+  --secondary-color: white;
   --table-line-color: #ffffff;
   --font-main: "Roboto", sans-serif;
   --font-size-base: 1rem;
@@ -13,11 +16,21 @@ body {
   font-family: var(--font-main);
   color: var(--main-color);
   line-height: 1.6;
-  font-size: 10px;
+  font-size: 1rem;
+}
+/* Agrega estilos según sea necesario */
+#btnDescargar {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
+
 .container {
-  max-width: 96%;
+  max-width: 100%;
   margin: 20px auto;
   padding: 10px;
   background-color: #000000d4;
@@ -47,7 +60,9 @@ table {
   table-layout: fixed;
   border-collapse: collapse;
   margin-top: 1em;
+  border-spacing: 0.5em; /* Ajusta este valor según sea necesario */
 }
+
 
 .tbl-header {
   background-color: var(--secondary-color);
@@ -79,11 +94,12 @@ th:hover {
 }
 
 td {
-  padding: 1em;
+  padding: 0.5em; /* Ajusta este valor según sea necesario */
   text-align: center;
   font-weight: lighter;
   border-bottom: solid 1px var(--table-line-color);
 }
+
 
 @media (max-width: 1299px) {
   body {
@@ -176,11 +192,10 @@ td {
     transition: background-color 0.3s;
   }
 
-  th:hover,
-  td:hover {
-    background-color: #000000;
+  th:hover, td:hover {
+    background-color: #383838b3;
     color: #ffffff;
-  }
+}
 
   td:last-child {
     border-bottom: 1px solid var(--table-line-color);
@@ -214,12 +229,3 @@ td {
 ::-webkit-scrollbar-button {
   display: none;
 }
-
-
-
-
-
-
-
-
-
