@@ -1,7 +1,5 @@
 /* Importación de fuente externa */
-
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,700&family=Roboto&family=Roboto+Condensed&display=swap');
-
 
 /* Estilos generales */
 * {
@@ -10,12 +8,11 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    margin-left: -10px;
+    margin-left: 0px;
 }
-
 /* Estilos del cuerpo de la página */
 body {
-    background-image: url(images/space.jpg);
+    background-image: url(images/NUEVOS_BANNERS_PAGINA-22_1512x.webp);
     background-size: cover;
     background-position: center 0px;
     background-repeat: no-repeat;
@@ -129,31 +126,23 @@ body {
     color: rgb(0 0 0 / 50%);
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,700&family=Roboto&family=Roboto+Condensed&display=swap');
-
 .home-content h3 {
     font-size: 24px;
     margin-bottom: 15px;
-    color: rgb(0 0 0 );
+    color: rgb(0 0 0);
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,700&family=Roboto&family=Roboto+Condensed&display=swap');
 
 .home-content p {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 30px;
-    color: rgba(0, 0, 0, 0.51)
+    color: rgba(0, 0, 0, 0.51);
 }
 
 .home-content .highlight-text {
     color: #ff5733a1;
     margin-left: 5px;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,700&family=Roboto&family=Roboto+Condensed&display=swap');
-
 
 .btn-box a {
     display: inline-block;
@@ -170,63 +159,28 @@ body {
     background-color: #333333bf;
 }
 
+/* Estilos generales */
+
+/* ... (Código anterior) ... */
+
 @media (max-width: 999px) {
     .home {
-        margin-top: 80px; /* Ajustar el margen superior */
+        margin-top: 80px;
     }
 
-    .home-content h1 {
-        font-size: 28px; /* Ajustar el tamaño del título principal */
-    }
-
-    .home-content h3 {
-        font-size: 22px; /* Ajustar el tamaño del subtítulo */
-    }
-
-    .home-content p {
-        font-size: 16px; /* Ajustar el tamaño del párrafo */
-    }
-
+    .home-content h1,
+    .home-content h3,
+    .home-content p,
     .btn-box a {
-        font-size: 16px; /* Ajustar el tamaño del texto del botón */
+        font-size: 16px;
     }
 }
 
-/* Estilos específicos para pantallas aún más pequeñas */
 @media (max-width: 991px) {
-    .home {
-        margin-top: 80px; /* Ajustar el margen superior */
-    }
-
-    .home-content h1 {
-        font-size: 28px; /* Ajustar el tamaño del título principal */
-    }
-
-    .home-content h3 {
-        font-size: 22px; /* Ajustar el tamaño del subtítulo */
-    }
-
-    .home-content p {
-        font-size: 16px; /* Ajustar el tamaño del párrafo */
-    }
-
-    .btn-box a {
-        font-size: 16px; /* Ajustar el tamaño del texto del botón */
-    }
-}
-
-
-
-/* Ajustes adicionales según sea necesario */
-
-@media (max-width: 999px) {
-    .content {
-        min-height: 70px;
-    }
-
+    .content,
     .menu {
-        top: 0; /* Ajusta el espaciado en la parte superior */
-        padding: 15px; /* Ajusta el espaciado dentro del menú */
+        min-height: 70px;
+        padding: 15px;
         background-color: #ffffff;
     }
 
@@ -251,63 +205,14 @@ body {
 
     #menu:checked ~ .navbar {
         display: flex;
-        flex-direction: column; /* Ajusta la dirección de los elementos en el menú */
-        align-items: center; /* Centra los elementos en el menú */
+        flex-direction: column;
+        align-items: center;
         margin-left: 0;
     }
 
     .whatsapp-container {
-        bottom: 15px; /* Ajusta la posición vertical para pantallas más pequeñas */
-        right: 15px; /* Ajusta la posición horizontal para pantallas más pequeñas */
-    }
-
-    .whatsapp-container img {
-        width: 60px;
-        height: 60px;
-    }
-     /* Agregar estilos específicos para pantallas más pequeñas aquí */
-     
-}
-@media (max-width: 991px) {
-    .content {
-        min-height: 70px;
-    }
-
-    .menu {
-        top: 0; /* Ajusta el espaciado en la parte superior */
-        padding: 15px; /* Ajusta el espaciado dentro del menú */
-        background-color: #ffffff;
-    }
-
-    .menu label {
-        display: initial;
-    }
-
-    .menu .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        display: none;
-        background-color: #ffffff;
-        width: 100%;
-    }
-
-    .menu .navbar ul li {
-        width: 100%;
-        text-align: center;
-    }
-
-    #menu:checked ~ .navbar {
-        display: flex;
-        flex-direction: column; /* Ajusta la dirección de los elementos en el menú */
-        align-items: center; /* Centra los elementos en el menú */
-        margin-left: 0;
-    }
-
-    .whatsapp-container {
-        bottom: 15px; /* Ajusta la posición vertical para pantallas más pequeñas */
-        right: 15px; /* Ajusta la posición horizontal para pantallas más pequeñas */
+        bottom: 15px;
+        right: 15px;
     }
 
     .whatsapp-container img {
@@ -315,13 +220,8 @@ body {
         height: 60px;
     }
 
-     /* Agregar estilos específicos para pantallas más pequeñas aquí */
+    /* Agregar estilos específicos para pantallas más pequeñas aquí */
 }
-
-
-
-
-
 
 
 
