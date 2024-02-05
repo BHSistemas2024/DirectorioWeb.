@@ -96,7 +96,7 @@ th {
 th:hover {
   color: #000000;
   cursor: pointer;
-  background-color: rgb(154, 252, 203);
+  background-color: rgb(41, 128, 185);
 }
 
 td {
@@ -107,63 +107,62 @@ td {
 }
   
 .input-group {
-    width: 400px;
-    margin-bottom: 20px;
-    border: 2px solid #3498db;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .input-group:focus-within {
-    border-color: #2980b9;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-control {
-    padding: 15px 91px;
-    border: none;
-    border-radius: 15px 0 0 15px;
-    font-size: 18px;
-    font-weight: 500;
-    color: #333;
-    transition: all 0.2s ease-in-out;
+  width: 400px;
+  margin-bottom: 20px;
+  border: 2px solid #3498db;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
 }
-  
-  .input-group:focus-within .form-control {
-    background-color: #ffffff;
-  }
-  
-  .input-group-addon {
-    background-color: #3498db;
-    color: #fff;
-    border-radius: 0 15px 15px 0;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .input-group-addon:hover {
-    background-color: #2980b9;
-  }
-  
-  .fas.fa-search {
-    font-size: 18px;
-    margin-top: -2px;
-  }
-  
-  .input-group.loading .fas.fa-search {
-    animation: rotate 2s linear infinite;
-  }
-  
-  .resultado td.amarillo {
-    background-color: yellow;
-  }
 
-  .fa-magnifying-glass:before, .fa-search:before {
-    content: "\f002";
-    margin: 193px; 
+.input-group:focus-within {
+  border-color: #2980b9;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
 }
-  
+
+.form-control {
+  padding: 15px 20px; /* Ajustado para mejor apariencia */
+  border: none;
+  border-radius: 15px 0 0 15px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-group:focus-within .form-control {
+  background-color: #ffffff;
+}
+
+.input-group-addon {
+  background-color: #3498db;
+  color: #fff;
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-group-addon:hover {
+  background-color: #2980b9;
+}
+
+.fas.fa-search {
+  font-size: 18px;
+  margin-top: -2px;
+}
+
+.input-group.loading .fas.fa-search {
+  animation: rotate 2s linear infinite;
+}
+
+.resultado td.amarillo {
+  background-color: yellow;
+}
+
+/* Eliminado el estilo para el ícono de búsqueda que no es necesario */
+
+
+
   
   @keyframes rotate {
     from {
@@ -305,3 +304,4 @@ td {
 ::-webkit-scrollbar-button {
   display: none;
 }
+
