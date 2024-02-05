@@ -22,15 +22,16 @@
 <body>
 
 
-    <div class="input-group">
-        <!-- Input para la búsqueda -->
-        <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
-      
-        <!-- Botón de búsqueda -->
-        <span class="input-group-addon">
-          <i class="fas fa-search"></i>
-        </span>
+    <div class="search-container">
+        <div class="input-group">
+          <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
+          <span class="input-group-addon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+        </div>
+        <button id="btnLimpiar" class="btn-limpiar">Limpiar</button>
       </div>
+      <div id="mensajeNoResultados" style="display: none;"></div>
 
     <section class="container"> <!-- Agregué la clase "container" al elemento section -->
         <h1>FRANQUICIAS BIKE HOUSE</h1>
