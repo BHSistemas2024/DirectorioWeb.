@@ -13,7 +13,6 @@ const buscar = () => {
     });
     return;
   }
-
   const filaEncontrada = Array.from(filas).find((fila) => {
     const celdas = fila.querySelectorAll("td");
     return Array.from(celdas).some((celda) => {
@@ -41,6 +40,10 @@ const buscar = () => {
 };
 
 document.getElementById("busqueda").addEventListener("keyup", buscar);
+
+
+
+
 
 
 
