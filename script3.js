@@ -41,9 +41,6 @@ const buscar = () => {
 };
 
 document.getElementById("busqueda").addEventListener("keyup", buscar);
-  
-
-
 
 
 
