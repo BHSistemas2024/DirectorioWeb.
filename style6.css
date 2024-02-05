@@ -36,49 +36,6 @@ body {
   position: relative;
 }
 
-.search-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  background-color: #f8f8f8;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.search-container i {
-  margin-right: 10px;
-  color: #555;
-}
-
-#searchInput {
-  padding: 10px;
-  border: none;
-  flex: 1;
-  outline: none;
-  font-size: 16px;
-  color: #333;
-}
-
-.search-container span {
-  font-size: 14px;
-  color: #777;
-  margin-right: 5px;
-}
-
-.search-container:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-/* Agregamos estilos para el estado de foco del input */
-#searchInput:focus {
-  border: 1px solid #3498db; /* Cambia el color del borde al estar enfocado */
-  box-shadow: 0 0 8px rgba(52, 152, 219, 0.6); /* Agrega un resplandor al estar enfocado */
-}
-
-
 .container {
   max-width: 100%;
   margin: 20px auto;
@@ -164,17 +121,17 @@ td {
   }
   
   .form-control {
-    padding: 15px 10px;
+    padding: 15px 91px;
     border: none;
     border-radius: 15px 0 0 15px;
     font-size: 18px;
     font-weight: 500;
     color: #333;
     transition: all 0.2s ease-in-out;
-  }
+}
   
   .input-group:focus-within .form-control {
-    background-color: #f5f5f5;
+    background-color: #ffffff;
   }
   
   .input-group-addon {
@@ -201,6 +158,11 @@ td {
   .resultado td.amarillo {
     background-color: yellow;
   }
+
+  .fa-magnifying-glass:before, .fa-search:before {
+    content: "\f002";
+    margin: 193px; 
+}
   
   
   @keyframes rotate {
@@ -343,3 +305,4 @@ td {
 ::-webkit-scrollbar-button {
   display: none;
 }
+
