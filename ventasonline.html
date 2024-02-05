@@ -13,9 +13,24 @@
     <link rel="stylesheet" href="style3.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="images/ICONO_NEGRO_256x256_b4339fbf-63b5-475b-88b3-de74296022de_32x.webp">
+    <!-- Agrega la referencia a html2canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- Agrega la referencia a jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
 
 <body>
+
+
+    <div class="input-group">
+        <!-- Input para la búsqueda -->
+        <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
+      
+        <!-- Botón de búsqueda -->
+        <span class="input-group-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
 
     <section class="container"> <!-- Agregué la clase "container" al elemento section -->
         <h1>Ventas Online</h1>
@@ -23,11 +38,11 @@
             <table cellpadding="0" cellspacing="0" border="0">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>CIUDAD</th>
                         <th>CARGO</th>
                         <th>NOMBRE</th>
                         <th>TEL FIJO y/o CELULAR</th>
-                        <th>CORREO</th>
+                        <th>CELULAR</th>
                     </tr>
                 </thead>
             </table>
@@ -36,39 +51,42 @@
             <table cellpadding="0" cellspacing="0" border="0">
                 <tbody>
                     <tr>
-                        <td>MR</td>
-                        <td>Ventas Online 2</td>
-                        <td>Sebastián Ramírez</td>
-                        <td>+57 318 4283396 </td>
+                        <td>MEDELLIN</td>
+                        <td>VENTAS ONLINE CLIFF </td>
+                        <td>SEBASTIAN RAMIREZ ZAPATA</td>
+                        <td>316 646 07 07</td>
                         <td>enlinea@bikehouse.com.co</td>
                     </tr>
                     <tr>
-                        <td>NJ</td>
-                        <td>Ventas Online 3</td>
-                        <td>Camilo Restrepo</td>
-                        <td>+57 318 4283396</td>
+                        <td>MEDELLIN</td>
+                        <td></td>
+                        <td>CAMILO RESTREPO</td>
+                        <td></td>
                         <td>enlinea@bikehouse.com.co</td>
                     </tr>
                     <tr>
-                        <td>NA</td>
-                        <td>Ventas Online 5</td>
-                        <td>Juan Manuel Gómez</td>
-                        <td>+57 3143991449</td>
+                        <td>MEDELLIN</td>
+                        <td></td>
+                        <td>JUAN MANUEL GOMEZ</td>
+                        <td>316 646 07 07</td>
                         <td>enlinea@bikehouse.com.co</td>
                     </tr>
                     <tr>
-                        <td>MV</td>
-                        <td>Ventas PAGINA ONLINE</td>
-                        <td>Nicolás guiterrez</td>
-                        <td>+57 310 3869595</td>
-                        <td>auxiliar.online@bikehouse.co</td>
+                        <td>MEDELLIN</td>
+                        <td>GENERACION Y CONFIRMACION
+                            DE BOTONES DE PAGO</td>
+                        <td></td>
+                        <td>314 399 14 49</td>
+                        <td>enlinea@bikehouse.com.co</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script5.js"></script>
+
 </body>
 
 </html>
