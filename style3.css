@@ -72,9 +72,10 @@ body {
   transition: box-shadow 0.3s ease-in-out;
 }
 
-.resultado td.amarillo[data-campo="{campoBuscado}"] {
-  background-color: yellow; /* Puedes cambiar el color aquí */
-  opacity: 0.5; /* Puedes ajustar la transparencia aquí */
+/* Agregamos estilos para el estado de foco del input */
+#searchInput:focus {
+  border: 1px solid #3498db; /* Cambia el color del borde al estar enfocado */
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.6); /* Agrega un resplandor al estar enfocado */
 }
 
 
@@ -82,7 +83,7 @@ body {
   max-width: 100%;
   margin: 20px auto;
   padding: 10px;
-  background-color: #000000d4;
+  background-color: #0000009e;
   border-radius: var(--border-radius);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
@@ -147,10 +148,71 @@ td {
   font-weight: lighter;
   border-bottom: solid 1px var(--table-line-color);
 }
+  
+.input-group {
+    width: 400px;
+    margin-bottom: 20px;
+    border: 2px solid #3498db;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .input-group:focus-within {
+    border-color: #2980b9;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    padding: 15px 10px;
+    border: none;
+    border-radius: 15px 0 0 15px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .input-group:focus-within .form-control {
+    background-color: #f5f5f5;
+  }
+  
+  .input-group-addon {
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .input-group-addon:hover {
+    background-color: #2980b9;
+  }
+  
+  .fas.fa-search {
+    font-size: 18px;
+    margin-top: -2px;
+  }
+  
+  .input-group.loading .fas.fa-search {
+    animation: rotate 2s linear infinite;
+  }
+  
+  .resultado td.amarillo {
+    background-color: yellow;
+  }
+  
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
 
-
-
-/* Media query para pantallas de hasta 1299px de ancho */
 @media (max-width: 1299px) {
   body {
     font-size: 16px;
