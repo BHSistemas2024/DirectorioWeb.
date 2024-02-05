@@ -72,6 +72,13 @@ body {
   transition: box-shadow 0.3s ease-in-out;
 }
 
+/* Agregamos estilos para el estado de foco del input */
+#searchInput:focus {
+  border: 1px solid #3498db; /* Cambia el color del borde al estar enfocado */
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.6); /* Agrega un resplandor al estar enfocado */
+}
+
+
 .container {
   max-width: 100%;
   margin: 20px auto;
