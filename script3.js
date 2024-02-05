@@ -1,50 +1,55 @@
 const buscar = () => {
-  const textoBusqueda = document.getElementById("busqueda").value.toLowerCase();
-  const filas = document.querySelectorAll(".tbl-content tbody tr");
+    const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
+    const filas = document.querySelectorAll(".tbl-content tbody tr");
   
-  if (textoBusqueda.trim() === "") {
-    // Si el campo de búsqueda está vacío, restaura la apariencia original de todas las filas
+    // Limpiar resultados anteriores
     filas.forEach((fila) => {
       fila.classList.remove("resultado");
       const celdas = fila.querySelectorAll("td");
       celdas.forEach((celda) => {
-        celda.style.backgroundColor = ""; // Elimina el fondo verde
+        celda.style.backgroundColor = "";
       });
     });
-    return;
-  }
-  const filaEncontrada = Array.from(filas).find((fila) => {
-    const celdas = fila.querySelectorAll("td");
-    return Array.from(celdas).some((celda) => {
-      const texto = celda.textContent.toLowerCase();
-      return texto.includes(textoBusqueda);
-    });
-  });
-
-  if (filaEncontrada) {
-    filas.forEach((fila) => fila.classList.remove("resultado"));
-    filaEncontrada.classList.add("resultado");
-    filaEncontrada.scrollIntoView({ behavior: "smooth" });
-
-    // Modificación: buscar la celda directamente en el contenido
-    const celdasEncontradas = filaEncontrada.querySelectorAll("td");
-    celdasEncontradas.forEach((celda) => {
-      celda.style.backgroundColor = "rgb(255, 0, 0)"; // Verde (puedes cambiar el color aquí)
-    });
-  } else {
-    // Evitar mostrar el mensaje de "No se encontraron resultados" si el campo está vacío
-    if (textoBusqueda.trim() !== "") {
-      alert("No se encontraron resultados para la búsqueda proporcionada. Por favor, intenta con otro término.");
+  
+    if (textoBusqueda === "") {
+      // Ocultar mensaje de no resultados al limpiar
+      const mensajeNoResultados = document.getElementById("mensajeNoResultados");
+      mensajeNoResultados.style.display = "none";
+      return;
     }
-  }
-};
-
-document.getElementById("busqueda").addEventListener("keyup", buscar);
-
-
-
-
-
+  
+    const regex = new RegExp(textoBusqueda, "i");
+  
+    const filasEncontradas = Array.from(filas).filter((fila) => {
+      const celdas = fila.querySelectorAll("td");
+      return Array.from(celdas).some((celda) => regex.test(celda.textContent.trim()));
+    });
+  
+    if (filasEncontradas.length > 0) {
+      filasEncontradas.forEach((fila) => {
+        fila.classList.add("resultado");
+        fila.scrollIntoView({ behavior: "smooth" });
+  
+        const celdasEncontradas = fila.querySelectorAll("td");
+        celdasEncontradas.forEach((celda) => {
+          celda.style.backgroundColor = "rgb(255, 0, 0)";
+        });
+      });
+    } else {
+      // Mostrar mensaje de no resultados
+      const mensajeNoResultados = document.getElementById("mensajeNoResultados");
+      mensajeNoResultados.style.display = "block";
+    }
+  };
+  
+  const limpiarBusqueda = () => {
+    document.getElementById("busqueda").value = "";
+    buscar(); // Realizar la búsqueda para limpiar los resultados
+  };
+  
+  document.getElementById("busqueda").addEventListener("input", buscar);
+  document.getElementById("btnLimpiar").addEventListener("click", limpiarBusqueda);
+  
 
 
 
