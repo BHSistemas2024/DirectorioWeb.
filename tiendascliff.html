@@ -13,9 +13,21 @@
     <link rel="stylesheet" href="style3.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="images/ICONO_NEGRO_256x256_b4339fbf-63b5-475b-88b3-de74296022de_32x.webp">
+    <!-- Agrega la referencia a html2canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- Agrega la referencia a jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
 
 <body>
+
+
+<!-- Agrega un contenedor para el ícono y el texto junto al campo de búsqueda -->
+<div class="search-container">
+    <i class="fas fa-search"></i>
+    <span></span>
+    <input type="text" id="busqueda" placeholder="Buscar por nombre, correo, dirección o región">
+</div>
 
     <section class="container"> <!-- Agregué la clase "container" al elemento section -->
         <h1>TIENDAS CLIFF</h1>
@@ -43,7 +55,7 @@
                         <td>FABIAN MUÑOZ</td>
                         <td>3165382452</td>
                         <td>tiendacliff@bikehouse.co</td>
-                        <td>Carrera 43 #30-103, Medellín, Antioquia, Colombia</td>
+                        <td>CARRERA 43 # 30 - 103, MEDELLÍN, ANTIOQUIA, COLOMBIA</td>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
                     </tr>
                     <tr>
@@ -51,9 +63,8 @@
                         <td>CLIFF ENVIGADO</td>
                         <td>ANGEL MAURICIO BUITRAGO</td>
                         <td>3184811117</td>
-                        <td>tiendacliffenvigado
-                            @bikehouse.co</td>
-                        <td>Calle 37 Sur #36-31, Envigado, Antioquia, Colombia</td>
+                        <td>tiendacliffenvigado@bikehouse.co</td>
+                        <td>CALLE 37 SUR #36-31, ENVIGADO, ANTIOQUIA, COLOMBIA</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -61,9 +72,8 @@
                         <td>CLIFF 7 DE AGOSTO</td>
                         <td>JHON PINZON</td>
                         <td>3168753232</td>
-                        <td>cliffbogcentro
-                            @bikehouse.co</td>
-                        <td>Carrera 28A #68-28, Sector 7 de Agosto, Bogotá, Cundinamarca, Colombia</td>
+                        <td>cliffbogcentro@bikehouse.co</td>
+                        <td>CARRERA 28 A #68-28 SECTOR 7 DE AGOSTO, BOGOTÁ, CUNDINAMARCA, COLOMBIA</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -71,9 +81,8 @@
                         <td>CLIFF ARMENIA</td>
                         <td>FELIPE MONTOYA</td>
                         <td>3175506926</td>
-                        <td>tiendacliffarmenia
-                            @bikehouse.co</td>
-                        <td>Avenida Bolívar #10 Norte-12, Local 1, Armenia, Eje Cafetero, Colombia</td>
+                        <td>tiendacliffarmenia@bikehouse.co</td>
+                        <td>AVENIDA BOLIVAR #10 NORTE-12 LOCAL 1, ARMENIA, EJE CAFETERO, COLOMBIA/td>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
                     </tr>
                     <tr>
@@ -89,8 +98,10 @@
             </table>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script3.js"></script>
+
+</body>
 </html>
+
