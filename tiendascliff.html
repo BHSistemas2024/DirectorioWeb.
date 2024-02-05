@@ -10,7 +10,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style3.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
+    <link rel="stylesheet" href="style9.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="images/ICONO_NEGRO_256x256_b4339fbf-63b5-475b-88b3-de74296022de_32x.webp">
     <!-- Agrega la referencia a html2canvas -->
@@ -22,14 +22,13 @@
 <body>
 
 
-    <div class="input-group">
-        <!-- Input para la búsqueda -->
-        <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
-      
-        <!-- Botón de búsqueda -->
-        <span class="input-group-addon">
-          <i class="fas fa-search"></i>
-        </span>
+    <div class="search-container">
+        <div class="input-group">
+          <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
+          <span class="input-group-addon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+        </div>
       </div>
 
     <section class="container"> <!-- Agregué la clase "container" al elemento section -->
@@ -57,7 +56,9 @@
                         <td>CLIFF SAN DIEGO</td>
                         <td>FABIAN MUÑOZ</td>
                         <td>3165382452</td>
-                        <td>tiendacliff@bikehouse.co</td>
+                        <td class="email-cell">
+                            <span>tiendacliff@</span>
+                            <span style="display: block;">bikehouse.co</span>
                         <td>CARRERA 43 # 30 - 103, MEDELLÍN, ANTIOQUIA, COLOMBIA</td>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
                     </tr>
@@ -66,7 +67,9 @@
                         <td>CLIFF ENVIGADO</td>
                         <td>ANGEL MAURICIO BUITRAGO</td>
                         <td>3184811117</td>
-                        <td>tiendacliffenvigado@bikehouse.co</td>
+                        <td class="email-cell">
+                            <span>tiendacliffenvigado@</span>
+                            <span style="display: block;">bikehouse.co</span>
                         <td>CALLE 37 SUR #36-31, ENVIGADO, ANTIOQUIA, COLOMBIA</td>
                         <td></td>
                     </tr>
@@ -75,7 +78,9 @@
                         <td>CLIFF 7 DE AGOSTO</td>
                         <td>JHON PINZON</td>
                         <td>3168753232</td>
-                        <td>cliffbogcentro@bikehouse.co</td>
+                        <td class="email-cell">
+                            <span>cliffbogcentro@</span>
+                            <span style="display: block;">bikehouse.co</span>
                         <td>CARRERA 28 A #68-28 SECTOR 7 DE AGOSTO, BOGOTÁ, CUNDINAMARCA, COLOMBIA</td>
                         <td></td>
                     </tr>
@@ -84,7 +89,9 @@
                         <td>CLIFF ARMENIA</td>
                         <td>FELIPE MONTOYA</td>
                         <td>3175506926</td>
-                        <td>tiendacliffarmenia@bikehouse.co</td>
+                        <td class="email-cell">
+                            <span>tiendacliffarmenia</span>
+                            <span style="display: block;">@bikehouse.co</span>
                         <td>AVENIDA BOLIVAR #10 NORTE-12 LOCAL 1, ARMENIA, EJE CAFETERO, COLOMBIA/td>
                         <td>CUENTA CON SERVICIO DE TALLER</td>
                     </tr>
@@ -93,7 +100,9 @@
                         <td>CLIFF CAJICA</td>
                         <td>LEONARDO FISCO RODRIGUEZ </td>
                         <td>3173514252</td>
-                        <td>cliffcajica@bikehouse.co</td>
+                        <td class="email-cell">
+                            <span>cliffcajica@</span>
+                            <span style="display: block;">bikehouse.co</span>
                         <td>Carrera 5 #4A-79, Local 1-103, Conjunto Mixto Pietra PH, Cajicá, Cundinamarca, Colombia</td>
                         <td></td>
                     </tr>
