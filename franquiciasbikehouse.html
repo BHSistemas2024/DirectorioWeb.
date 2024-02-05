@@ -13,9 +13,24 @@
     <link rel="stylesheet" href="style3.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="images/ICONO_NEGRO_256x256_b4339fbf-63b5-475b-88b3-de74296022de_32x.webp">
+    <!-- Agrega la referencia a html2canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- Agrega la referencia a jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
 </head>
 
 <body>
+
+
+    <div class="input-group">
+        <!-- Input para la búsqueda -->
+        <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
+      
+        <!-- Botón de búsqueda -->
+        <span class="input-group-addon">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
 
     <section class="container"> <!-- Agregué la clase "container" al elemento section -->
         <h1>FRANQUICIAS BIKE HOUSE</h1>
@@ -41,34 +56,24 @@
                         <td>BIKE HOUSE MANIZALES</td>
                         <td>GILMA OROZCO</td>
                         <td>311 341 01 58</td>
-                        <td>gilmabike@
-                            hotmail.com</td>
-                        <td>CARRERA 23 # 70 A - 63</td>
-                    </tr>
-                        <tr>
-                        <td>YOPAL</td>
-                        <td>YOPAL</td>
-                        <td>GUSTAVO DIAZ</td>
-                        <td>3138590852</td>
-                        <td>bikehouseyopal
-                            @gmail.com</td>
-                        <td>Carrera 29 #18-92, Yopal, Casanare, Colombia</td>
-                        <td></td>
+                        <td>gilmabike@hotmail.com</td>
+                        <td>Carrera 23 #70A-63</td>
                     </tr>
                     <tr>
                         <td>APARTADO</td>
                         <td>BIKE HOUSE APARTADO</td>
                         <td>SANTIAGO MUÑOZ</td>
                         <td>3174319329 - 3113950041</td>
-                        <td>apartado@
-                            bikehouse.com.co</td>
-                        <td>CALLE 99A N103 45, APARTADO ANTIOQUIA</td>
+                        <td>apartado@bikehouse.com.co</td>
+                        <td>Calle 99A N103-45, Apartadó, Antioquia</td>
                     </tr>
             </table>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
 
+        
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script2.js"></script>
+
+</body>
 </html>
