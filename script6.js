@@ -32,7 +32,7 @@ const buscar = () => {
   
         const celdasEncontradas = fila.querySelectorAll("td");
         celdasEncontradas.forEach((celda) => {
-          celda.style.backgroundColor = "rgb(255, 0, 0)";
+          celda.style.backgroundColor = "rgb(52, 152, 219)"
         });
       });
     } else {
@@ -50,9 +50,3 @@ const buscar = () => {
   document.getElementById("busqueda").addEventListener("input", buscar);
   document.getElementById("btnLimpiar").addEventListener("click", limpiarBusqueda);
   
-  
-  
-    
-    
-    
-    
