@@ -12,7 +12,7 @@
 }
 /* Estilos del cuerpo de la página */
 body {
-    background-image: url(images/NUEVOS_BANNERS_PAGINA-22_1512x.webp);
+    background-image: url(images/space.jpg);
     background-size: cover;
     background-position: center 0px;
     background-repeat: no-repeat;
@@ -23,6 +23,8 @@ body {
     position: relative; /* Añadido para establecer el contexto de apilamiento */
 }
 
+
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -31,7 +33,7 @@ body {
 /* Contenido de la página */
 .content {
     min-height: 90px;
-    background-color: #3498db
+    background-color: #3498db;
 }
 
 /* Barra de menú */
@@ -159,9 +161,7 @@ body {
     background-color: #333333bf;
 }
 
-/* Estilos generales */
 
-/* ... (Código anterior) ... */
 
 @media (max-width: 999px) {
     .home {
@@ -222,7 +222,4 @@ body {
 
     /* Agregar estilos específicos para pantallas más pequeñas aquí */
 }
-
-
-
 

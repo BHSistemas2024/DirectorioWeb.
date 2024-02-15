@@ -1,5 +1,7 @@
+/* Fuentes */
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,6..12,500;1,6..12,700&family=Roboto&family=Roboto+Condensed&display=swap');
 
+/* Variables */
 :root {
   --main-color: #ffffff;
   --secondary-color: white;
@@ -11,25 +13,47 @@
   --border-radius: 8px;
 }
 
+/* Estilos generales */
 body {
+  background-color: #ffffff;
   font-family: var(--font-main);
   color: var(--main-color);
   line-height: 1.6;
   font-size: var(--font-size-base);
+  overflow-x: hidden;
 }
-
-#btnDescargar {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
+.icon-right {
   cursor: pointer;
+  margin-left: 10px;
+  margin-top: -3px;
+  display: flex;
+  align-items: center;
 }
 
-#btnDescargar:hover {
-  background-color: #45a049;
+/* Estilo para la imagen dentro del contenedor */
+.icon-right img {
+  margin-right: 5px;
+  border-radius: 50%; /* Agrega bordes redondeados a la imagen */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+  transition: transform 0.3s ease; /* Agrega una transición suave al hacer hover */
 }
+
+/* Estilo para el texto dentro del contenedor */
+.icon-right p {
+  color: #000000;
+  margin: 0;
+  font-weight: bold; /* Agrega negrita al texto */
+}
+
+/* Cambios al hacer hover */
+.icon-right:hover img {
+  transform: scale(1.1); /* Hace que la imagen sea un poco más grande al hacer hover */
+}
+
+.icon-right:hover p {
+  color: #3498db; /* Cambia el color del texto al hacer hover */
+}
+ 
 
 [data-tippy-content] {
   cursor: pointer;
@@ -81,14 +105,17 @@ table {
   border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
-th {
+th, td {
   padding: 1em;
   text-align: center;
-  font-weight: 500;
+  font-weight: lighter;
+  border-bottom: solid 1px var(--table-line-color);
+}
+
+th {
   font-size: var(--font-size-small);
   text-transform: uppercase;
   transition: background-color 0.0s ease-in-out;
-  border-bottom: solid 1px var(--table-line-color);
   color: black;
   cursor: pointer;
 }
@@ -99,29 +126,16 @@ th:hover {
   background-color: rgb(41, 128, 185);
 }
 
-td {
-  padding: 0.5em;
-  text-align: center;
-  font-weight: lighter;
-  border-bottom: solid 1px var(--table-line-color);
-}
-
 /* Contenedor principal */
 .search-container {
   display: flex;
-  align-items: center;
-}
-
-/* Contenedor principal */
-.search-container {
-  display: flex;
-  align-items: flex-start; /* Alinea los elementos en la parte superior */
+  align-items: flex-start;
 }
 
 .input-group {
   flex: 1;
-  max-width: 300px; /* Ajusta el tamaño máximo del buscador según tu preferencia */
-  margin-right: 10px; /* Agregado margen entre el buscador y el botón */
+  max-width: 300px;
+  margin-right: 10px;
   display: flex;
   border: 2px solid #3498db;
   border-radius: 15px;
@@ -136,11 +150,10 @@ td {
 
 .form-control {
   flex: 1;
-  padding: 10px; /* Reducido el padding para hacer el buscador más compacto */
+  padding: 10px;
   border: none;
-  font-size: 14px; /* Ajustado el tamaño del texto del buscador */
+  font-size: 14px;
   font-weight: 500;
-  color: #333;
   transition: all 0.2s ease-in-out;
 }
 
@@ -161,254 +174,236 @@ td {
 }
 
 .fas.fa-search {
-  font-size: 14px; /* Ajustado el tamaño del icono de búsqueda */
+  font-size: 14px;
   margin-top: -2px;
 }
 
 /* Estilos para el botón de limpiar */
 .btn-limpiar {
   display: inline-block;
-  padding: 10px 15px; /* Ajustado el padding para hacer el botón más compacto */
-  font-size: 14px; /* Ajustado el tamaño del texto del botón */
+  padding: 10px 15px;
+  font-size: 14px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
   background-color: #3498db;
   color: #fff;
-  transition: background-color 0.3s ease-in-out;
-  margin-top: 2px; /* Ajusta el margen superior del botón */
-}
-
-/* Estilos para el estado hover del botón de limpiar */
-.btn-limpiar:hover {
-  background-color: #3498db
-}
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
+  transition: transform 0.3s ease;
+  margin-top: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+  transition: transform 0.3s ease;
   
-
-@media (max-width: 1299px) {
-  body {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  table {
-    table-layout: auto;
-    width: 100%;
-    margin-top: 1em;
-  }
-
-  th,
-  td {
-    display: block;
-    box-sizing: border-box;
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid transparent;
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
-  }
-
-  th:hover,
-  td:hover {
-    background-color: #000000;
-    color: #ffffff;
-  }
-
-  td:last-child {
-    border-bottom: 1px solid var(--table-line-color);
-    margin-bottom: 0;
-  }
-
-  .input-group {
-    width: 100%; /* Cambiado a ancho completo en dispositivos más pequeños */
-  }
-
-  .form-control {
-    padding: 15px;
-  }
 }
 
-/* Estilos originales */
-/* Contenedor principal */
-.search-container {
+
+.btn-limpiar:hover {
+  background-color: #3498db;
+}
+
+.btn-limpiar:hover {
+  transform: scale(1.1); /* Hace que la imagen sea un poco más grande al hacer hover */
+}
+
+/* Estilos para la sección de contacto */
+.contact-container {
+  height: 84vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 39px;
+  max-width: 800px;
+  width: 100%;
+  margin-left: 250px;
+}
+
+.contact-left-title h2 {
+  font-weight: 600;
+  color: #3498db;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.contact-left-title hr {
+  border: none;
+  width: 120px;
+  height: 5px;
+  background-color: #3498db;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.contact-inputs-group {
+  display: flex;
+  gap: 20px;
+}
+.contact-inputs {
+  width: 100%;
+  /* max-width: 400px; */
+  height: 50px;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  font-weight: 500;
+  color: #666;
+  border-radius: 50px;
+}
+
+.contact-left-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.contact-left textarea {
+  width: 100%;
+  max-width: 400px;
+  height: 140px;
+  padding-top: 15px;
+  border-radius: 20px;
+}
+
+.contact-inputs:focus {
+  border: 2px solid #3498db;
+}
+
+.contact-inputs::placeholder {
+  color: #a9a9a9;
+}
+
+.contact-left button {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: #fff;
+  gap: 10px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: linear-gradient(270deg, #3498db, #3498db);
+}
+
+.contact-left button img {
+  height: 15px;
+}
+
+.contact-right {
   display: flex;
   align-items: center;
 }
 
-
-/* Estilos de la barra de desplazamiento */
-::-webkit-scrollbar {
-  width: 12px;
+.contact-right img {
+  width: 500px;
 }
 
-/* Estilo para el riel de la barra de desplazamiento */
-::-webkit-scrollbar-track {
-  background-color: #333;
-  border-radius: 8px;
+
+
+@media (max-width: 1099px) {
+body {
+  font-size: 16px;
 }
 
-/* Estilo para el pulgar de la barra de desplazamiento */
-::-webkit-scrollbar-thumb {
-  background-color: #666;
-  border-radius: 8px;
+h1 {
+  font-size: 24px;
 }
 
-/* Cambia el color del pulgar al pasar el mouse */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #888;
+table {
+  table-layout: auto;
+  width: 100%;
+  margin-top: 1em;
 }
 
-/* Estilo para los botones de inicio y fin de la barra de desplazamiento */
-::-webkit-scrollbar-button {
-  display: none;
+th,
+td {
+  display: block;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid transparent;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
 }
 
-/* Estilos para el botón de limpiar */
-
-
-
-/* Media query para pantallas de hasta 900px de ancho */
-@media (max-width: 900px) {
-  body {
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  table {
-    table-layout: auto;
-    width: 100%;
-    margin-top: 1em;
-  }
-
-  th,
-  td {
-    display: block;
-    box-sizing: border-box;
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid transparent;
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
-  }
-
-  th:hover, td:hover {
-    background-color: #383838b3;
-    color: #ffffff;
-  }
-
-  td:last-child {
-    border-bottom: 1px solid var(--table-line-color);
-    margin-bottom: 0;
-  }
-
-  .input-group {
-    width: 100%; /* Cambiado a ancho completo en dispositivos más pequeños */
-  }
-
-  .form-control {
-    padding: 15px;
-  }
+th:hover,
+td:hover {
+  background-color: #000000;
+  color: #ffffff;
 }
 
-/* Estilos originales */
+td:last-child {
+  border-bottom: 1px solid var(--table-line-color);
+  margin-bottom: 0;
+}
+
 .input-group {
-  width: 400px;
-  border: 2px solid #3498db;
-  border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s ease-in-out;
-}
-
-.input-group:focus-within {
-  border-color: #2980b9;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .form-control {
-  padding: 15px 20px; /* Ajustado para mejor apariencia */
-  border: none;
-  border-radius: 15px 0 0 15px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #333;
-  transition: all 0.2s ease-in-out;
+  padding: 15px;
+}
+.contact-inputs {
+  width: 100%;
+  max-width: none;
+}
+.contact-right {
+  display: none;
+}
+body {
+  overflow-x: hidden;
 }
 
-.input-group:focus-within .form-control {
-  background-color: #ffffff;
+/* Resto de tus reglas para dispositivos de hasta 768px */
+.container, 
+.contact-container,
+.contact-left {
+  max-width: 100%;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: center;
+}
+
+.contact-container {
+  height: auto;
+}
+
+.contact-left {
+  margin-left: 0;
+}
+
+.contact-right img {
+  width: 100%;
+}
+
+.contact-inputs-group {
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.input-group {
+  width: 100%;
+  max-width: none;
+  margin-right: 0;
 }
 
 .input-group-addon {
-  background-color: #3498db;
-  color: #fff;
-  border-radius: 0 15px 15px 0;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  border-radius: 15px;
 }
-
-.input-group-addon:hover {
-  background-color: #2980b9;
+/* Resto de tus reglas para dispositivos de hasta 768px */
 }
-
-.fas.fa-search {
-  font-size: 18px;
-  margin-top: -2px;
-}
-
-.input-group.loading .fas.fa-search {
-  animation: rotate 2s linear infinite;
-}
-
-.resultado td.amarillo {
-  background-color: yellow;
-}
-
-
-
-
-
-/* Estilo para la barra de desplazamiento */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-/* Estilo para el riel de la barra de desplazamiento */
-::-webkit-scrollbar-track {
-  background-color: #333;
-  border-radius: 8px;
-}
-
-/* Estilo para el pulgar de la barra de desplazamiento */
-::-webkit-scrollbar-thumb {
-  background-color: #666;
-  border-radius: 8px;
-}
-
-/* Cambia el color del pulgar al pasar el mouse */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #888;
-}
-
-/* Estilo para los botones de inicio y fin de la barra de desplazamiento */
-::-webkit-scrollbar-button {
-  display: none;
-}
-
-
-
