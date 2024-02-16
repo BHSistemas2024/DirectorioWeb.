@@ -11,20 +11,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error en la conexión: " . $conn->connect_error);
     }
 
-    $region = $_POST['region'];
-    $storeName = $_POST['storeName'];
-    $administrator = $_POST['administrator'];
+    $city = $_POST['city'];
+    $position = $_POST['position'];
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
     $cellphone = $_POST['cellphone'];
-    $email = $_POST['email'];
     $message = $_POST['message'];
 
-    $sql = "INSERT INTO ventasonline (region, storeName, administrator, cellphone, email, message) 
-            VALUES ('$region', '$storeName', '$administrator', '$cellphone', '$email', '$message')";
+    // Reemplazamos caracteres no numéricos en el número de teléfono
+    $phone = preg_replace("/[^0-9]/", "", $phone);
+    $cellphone = preg_replace("/[^0-9]/", "", $cellphone);
+
+    $sql = "INSERT INTO ventasonline (city, position, name, phone, cellphone, message) VALUES ('$city', '$position', '$name', '$phone', '$cellphone', '$message')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Datos enviados correctamente. ¡Gracias por tu información!";
     } else {
-        echo "Error al insertar datos de ventas online: " . $conn->error;
+        echo "Error al insertar datos en ventasonline: " . $conn->error;
     }
 
     $conn->close();
