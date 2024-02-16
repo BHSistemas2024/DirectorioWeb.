@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-02-2024 a las 13:57:55
+-- Tiempo de generación: 16-02-2024 a las 15:41:52
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -24,16 +24,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `administradores`
+-- Estructura de tabla para la tabla `administrador`
 --
 
-CREATE TABLE `administradores` (
+CREATE TABLE `administrador` (
   `id` int(11) NOT NULL,
-  `region` varchar(255) NOT NULL,
-  `storeName` varchar(255) NOT NULL,
-  `administrator` varchar(255) NOT NULL,
-  `cellphone` varchar(20) NOT NULL,
+  `personal` varchar(255) NOT NULL,
+  `cellphone` varchar(255) NOT NULL,
+  `cargo` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `ubicacion` varchar(255) NOT NULL,
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -45,10 +45,10 @@ CREATE TABLE `administradores` (
 
 CREATE TABLE `asesoresventasexternas` (
   `id` int(11) NOT NULL,
-  `region` varchar(255) NOT NULL,
-  `storeName` varchar(255) NOT NULL,
-  `administrator` varchar(255) NOT NULL,
-  `cellphone` varchar(20) NOT NULL,
+  `area` varchar(255) NOT NULL,
+  `zone` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `cellphone` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -61,14 +61,13 @@ CREATE TABLE `asesoresventasexternas` (
 
 CREATE TABLE `franquiciasbikehouse` (
   `id` int(11) NOT NULL,
-  `region` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
   `storeName` varchar(255) NOT NULL,
-  `administrator` varchar(255) NOT NULL,
-  `cellphone` varchar(20) NOT NULL,
+  `franchiseContact` varchar(255) NOT NULL,
+  `cellphone` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `message` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -115,29 +114,22 @@ CREATE TABLE `tiendascliff` (
 
 CREATE TABLE `ventasonline` (
   `id` int(11) NOT NULL,
-  `region` varchar(255) NOT NULL,
-  `storeName` varchar(255) NOT NULL,
-  `administrator` varchar(255) NOT NULL,
-  `cellphone` varchar(20) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `cellphone` varchar(255) NOT NULL,
   `message` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `ventasonline`
---
-
-INSERT INTO `ventasonline` (`id`, `region`, `storeName`, `administrator`, `cellphone`, `email`, `message`) VALUES
-(2, 'medellin', 's', 's', 'ss@gmailcom', 'camilovasquezrivas@gmail.com', 's');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `administradores`
+-- Indices de la tabla `administrador`
 --
-ALTER TABLE `administradores`
+ALTER TABLE `administrador`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -175,10 +167,10 @@ ALTER TABLE `ventasonline`
 --
 
 --
--- AUTO_INCREMENT de la tabla `administradores`
+-- AUTO_INCREMENT de la tabla `administrador`
 --
-ALTER TABLE `administradores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `administrador`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `asesoresventasexternas`
@@ -190,7 +182,7 @@ ALTER TABLE `asesoresventasexternas`
 -- AUTO_INCREMENT de la tabla `franquiciasbikehouse`
 --
 ALTER TABLE `franquiciasbikehouse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `tiendasbikehouse`
@@ -202,13 +194,13 @@ ALTER TABLE `tiendasbikehouse`
 -- AUTO_INCREMENT de la tabla `tiendascliff`
 --
 ALTER TABLE `tiendascliff`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `ventasonline`
 --
 ALTER TABLE `ventasonline`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
