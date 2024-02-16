@@ -20,6 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $provider = $_POST['provider'];
     $message = $_POST['message'];
 
+    // Reemplazamos caracteres no numéricos en el número de teléfono
+    $cellphone = preg_replace("/[^0-9]/", "", $cellphone);
+
     $sql = "INSERT INTO tiendascliff (region, storeName, administrator, cellphone, email, address, provider, message) VALUES ('$region', '$storeName', '$administrator', '$cellphone', '$email', '$address', '$provider', '$message')";
 
     if ($conn->query($sql) === TRUE) {
