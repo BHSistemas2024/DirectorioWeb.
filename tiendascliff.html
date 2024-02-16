@@ -1,36 +1,232 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "directorio";
+<!DOCTYPE html>
+<html lang="es">
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike House</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style9.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="images/ICONO_NEGRO_256x256_b4339fbf-63b5-475b-88b3-de74296022de_32x.webp">
+    <!-- Agrega la referencia a html2canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- Agrega la referencia a jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+</head>
 
-    if ($conn->connect_error) {
-        die("Error en la conexión: " . $conn->connect_error);
-    }
+<body>
 
-    $region = $_POST['region'];
-    $storeName = $_POST['storeName'];
-    $administrator = $_POST['administrator'];
-    $cellphone = $_POST['cellphone'];
-    $email = $_POST['email'];
-    $address = $_POST['address'];
-    $provider = $_POST['provider'];
-    $message = $_POST['message'];
+    <div class="search-container">
+        <div class="input-group">
+            <input type="text" id="busqueda" class="form-control"
+                placeholder="Buscar por nombre, correo electrónico, dirección o región">
+            <span class="input-group-addon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+        </div>
+        <button id="btnLimpiar" class="btn-limpiar">
+            Limpiar
+        </button>
+        <span class="icon-right">
+            <img src="images/icons8-flecha-hacia-abajo-50.png" alt="Icono de flecha hacia abajo"> <!-- Ajusta la ruta de la imagen según tu estructura de archivos -->
+            <p>Corrección</p>
+        </span>
+    </div>
+    <div id="mensajeNoResultados" style="display: none;"></div>
 
-    $sql = "INSERT INTO tiendascliff (region, storeName, administrator, cellphone, email, address, provider, message) VALUES ('$region', '$storeName', '$administrator', '$cellphone', '$email', '$address', '$provider', '$message')";
+        <section class="container">
+            <h1>TIENDAS CLIFF</h1>
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <thead>
+                        <tr>
+                            <th>REGIÓN</th>
+                            <th>NOMBRE TIENDA</th>
+                            <th>ADMINISTRADOR</th>
+                            <th>CELULAR</th>
+                            <th>CORREO ELECTRÓNICO</th>
+                            <th>DIRECCIÓN</th>
+                            <th>PROVEEDOR DE INTERNET</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Datos enviados correctamente. ¡Gracias por tu información!";
-    } else {
-        echo "Error al insertar datos en tiendascliff: " . $conn->error;
-    }
+            <section class="container aym">
+                <div class="tbl-content">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                    <tr>
+                        <td>CLIFF ANTIOQUIA</td>
+                        <td>CLIFF SAN DIEGO</td>
+                        <td>FABIAN MUÑOZ</td>
+                        <td>3165382452</td>
+                        <td class="email-cell">
+                            <span>tiendacliff@</span>
+                            <span style="display: block;">bikehouse.co</span>
+                        <td>CARRERA 43 # 30 - 103, MEDELLÍN, ANTIOQUIA, COLOMBIA</td>
+                        <td>CUENTA CON SERVICIO DE TALLER</td>
+                    </tr>
+                    <tr>
+                        <td>CLIFF ANTIOQUIA</td>
+                        <td>CLIFF ENVIGADO</td>
+                        <td>ANGEL MAURICIO BUITRAGO</td>
+                        <td>3184811117</td>
+                        <td class="email-cell">
+                            <span>tiendacliffenvigado@</span>
+                            <span style="display: block;">bikehouse.co</span>
+                        <td>CALLE 37 SUR #36-31, ENVIGADO, ANTIOQUIA, COLOMBIA</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>CLIFF CUNDINAMARCA</td>
+                        <td>CLIFF 7 DE AGOSTO</td>
+                        <td>JHON PINZON</td>
+                        <td>3168753232</td>
+                        <td class="email-cell">
+                            <span>cliffbogcentro@</span>
+                            <span style="display: block;">bikehouse.co</span>
+                        <td>CARRERA 28 A #68-28 SECTOR 7 DE AGOSTO, BOGOTÁ, CUNDINAMARCA, COLOMBIA</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>CLIFF EJE CAFETERO</td>
+                        <td>CLIFF ARMENIA</td>
+                        <td>FELIPE MONTOYA</td>
+                        <td>3175506926</td>
+                        <td class="email-cell">
+                            <span>tiendacliffarmenia@</span>
+                            <span style="display: block;">bikehouse.co</span>
+                        <td>AVENIDA BOLIVAR #10 NORTE-12 LOCAL 1, ARMENIA, EJE CAFETERO, COLOMBIA</td>
+                        <td>CUENTA CON SERVICIO DE TALLER</td>
+                    </tr>
+                    <tr>
+                        <td>CLIFF CUNDINAMARCA</td>
+                        <td>CLIFF CAJICA</td>
+                        <td>LEONARDO FISCO RODRIGUEZ </td>
+                        <td>3173514252</td>
+                        <td class="email-cell">
+                            <span>cliffcajica@</span>
+                            <span style="display: block;">bikehouse.co</span>
+                        <td>Carrera 5 #4A-79, Local 1-103, Conjunto Mixto Pietra PH, Cajicá, Cundinamarca, Colombia</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
-    $conn->close();
-}
-?>
+    <script>
+        const buscar = () => {
+            const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
+            const filas = document.querySelectorAll(".tbl-content tbody tr");
+    
+            // Limpiar resultados anteriores
+            filas.forEach((fila) => {
+                fila.classList.remove("resultado");
+                const celdas = fila.querySelectorAll("td");
+                celdas.forEach((celda) => {
+                    celda.style.backgroundColor = "";
+                });
+            });
+    
+            if (textoBusqueda === "") {
+                // Ocultar mensaje de no resultados al limpiar
+                const mensajeNoResultados = document.getElementById("mensajeNoResultados");
+                mensajeNoResultados.style.display = "none";
+                return;
+            }
+    
+            const regex = new RegExp(textoBusqueda, "i");
+    
+            const filasEncontradas = Array.from(filas).filter((fila) => {
+                const celdas = fila.querySelectorAll("td");
+                return Array.from(celdas).some((celda) => regex.test(celda.textContent.trim()));
+            });
+    
+            if (filasEncontradas.length > 0) {
+                filasEncontradas.forEach((fila) => {
+                    fila.classList.add("resultado");
+                    fila.scrollIntoView({ behavior: "smooth" });
+    
+                    const celdasEncontradas = fila.querySelectorAll("td");
+                    celdasEncontradas.forEach((celda) => {
+                        celda.style.backgroundColor = "rgb(52, 152, 219)"
+                    });
+                });
+            } else {
+                // Mostrar mensaje de no resultados
+                const mensajeNoResultados = document.getElementById("mensajeNoResultados");
+                mensajeNoResultados.style.display = "block";
+            }
+        };
+    
+        const limpiarBusqueda = () => {
+            document.getElementById("busqueda").value = "";
+            buscar(); // Realizar la búsqueda para limpiar los resultados
+        };
+    
+        document.getElementById("busqueda").addEventListener("input", buscar);
+        document.getElementById("btnLimpiar").addEventListener("click", limpiarBusqueda);
+    
+        document.querySelector(".icon-right img").addEventListener("click", () => {
+            const finalDeLaPagina = document.querySelector("body");
+            finalDeLaPagina.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+        });
+    </script>
+    
+    <form method="post" action="tiendascliff.php">
+    <div class="contact-container">
+        <div class="contact-left">
+          <div class="contact-left-title">
+            <h2></h2>
+            <hr>
+          </div>
+          <div class="contact-form">
+              <div class="contact-inputs-group">
+                <input type="text" name="region" placeholder="Region" class="contact-inputs" required>
+                <input type="text" name="storeName" placeholder="Nombre Tienda" class="contact-inputs" required>
+                <input type="text" name="administrator" placeholder="Administrador" class="contact-inputs" required>
+                <input type="email" name="cellphone" placeholder="Celular" class="contact-inputs" required>
+              </div>
+              <div class="contact-inputs-group">
+                <input type="email" name="email" placeholder="Correo Electrónico" class="contact-inputs" required>
+                <input type="text" name="address" placeholder="Dirección" class="contact-inputs" required>
+                <input type="text" name="provider" placeholder="Proveedor" class="contact-inputs" required>
+              </div>
+          </div>
+          <div class="contact-left-bottom">
+            <textarea name="message" placeholder="Mensaje" class="contact-inputs" required></textarea>
+            <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
+          </div>
+          </form> <!-- Cerrar el formulario aquí -->
+        </div>
+      </div>
+      <div class="contact-right">
+        <img src="" alt="">
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script4.js"></script>
+    <!-- Otros scripts que puedas tener -->
+    
+    </body>
+    
+    </html>
+
+
+
+
+
+      
+
+
 
       
 
