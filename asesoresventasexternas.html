@@ -226,32 +226,34 @@
     </script>
   
   <form method="post" action="asesoresventasexternas.php">
-  <div class="contact-container">
-    <div class="contact-left">
-        <div class="contact-left-title">
-            <h2></h2>
-            <hr>
-        </div>
-        <div class="contact-form">
-            <div class="contact-inputs-group">
-                <input type="text" name="region" placeholder="Area" class="contact-inputs" required>
-                <input type="text" name="storeName" placeholder="Zona Que Atiende" class="contact-inputs" required>
-                <input type="text" name="administrator" placeholder="Nombre" class="contact-inputs" required>
-                <input type="email" name="cellphone" placeholder="Celular" class="contact-inputs" required>
+    <div class="contact-container">
+        <div class="contact-left">
+            <div class="contact-left-title">
+                <h2></h2>
+                <hr>
             </div>
-            <div class="contact-inputs-group">
-                <input type="text" name="email" placeholder="Correo Electrónico" class="contact-inputs" required>
+            <div class="contact-form">
+                <div class="contact-inputs-group">
+                    <input type="text" name="area" placeholder="Área" class="contact-inputs" required>
+                    <input type="text" name="zone" placeholder="Zona Que Atiende" class="contact-inputs" required>
+                    <input type="text" name="name" placeholder="Nombre" class="contact-inputs" required>
+                    <input type="tel" name="cellphone" placeholder="Celular" class="contact-inputs" required pattern="[0-9]+">
+                </div>
+                <div class="contact-inputs-group">
+                    <input type="text" name="email" placeholder="Correo Electrónico" class="contact-inputs" required>
+                </div>
+            </div>
+            <div class="contact-left-bottom">
+                <textarea name="message" id="message" placeholder="Tu mensaje" class="contact-inputs" required></textarea>
+                <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
             </div>
         </div>
-        <div class="contact-left-bottom">
-            <textarea name="message" id="message" placeholder="Tu mensaje" class="contact-inputs" required></textarea>
-            <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
+        <div class="contact-right">
+            <img src="" alt="">
         </div>
     </div>
-    <div class="contact-right">
-        <img src="" alt="">
-    </div>
-  </div>
+</form>
+
   
   </body>
   </html>
