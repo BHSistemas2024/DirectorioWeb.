@@ -11,22 +11,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error en la conexión: " . $conn->connect_error);
     }
 
-    $region = $_POST['region'];
-    $storeName = $_POST['storeName'];
-    $administrator = $_POST['administrator'];
+    $area = $_POST['area'];
+    $zone = $_POST['zone'];
+    $name = $_POST['name'];
     $cellphone = $_POST['cellphone'];
     $email = $_POST['email'];
     $message = $_POST['message'];
 
-    $sql = "INSERT INTO asesoresventasexternas (region, storeName, administrator, cellphone, email, message) 
-            VALUES ('$region', '$storeName', '$administrator', '$cellphone', '$email', '$message')";
+    $sql = "INSERT INTO asesoresventasexternas (area, zone, name, cellphone, email, message) VALUES ('$area', '$zone', '$name', '$cellphone', '$email', '$message')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Datos enviados correctamente. ¡Gracias por tu información!";
     } else {
-        echo "Error al insertar datos de asesores de ventas externas: " . $conn->error;
+        echo "Error al insertar datos en asesoresventasexternas: " . $conn->error;
     }
 
     $conn->close();
 }
 ?>
+
