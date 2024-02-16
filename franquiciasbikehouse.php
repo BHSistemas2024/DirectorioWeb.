@@ -11,15 +11,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error en la conexión: " . $conn->connect_error);
     }
 
-    $region = $_POST['region'];
+    $city = $_POST['city'];
     $storeName = $_POST['storeName'];
-    $administrator = $_POST['administrator'];
+    $franchiseContact = $_POST['franchiseContact'];
     $cellphone = $_POST['cellphone'];
     $email = $_POST['email'];
     $address = $_POST['address'];
     $message = $_POST['message'];
 
-    $sql = "INSERT INTO franquiciasbikehouse (region, storeName, administrator, cellphone, email, address, message) VALUES ('$region', '$storeName', '$administrator', '$cellphone', '$email', '$address', '$message')";
+    // Reemplazamos caracteres no numéricos en el número de teléfono
+    $cellphone = preg_replace("/[^0-9]/", "", $cellphone);
+
+    $sql = "INSERT INTO franquiciasbikehouse (city, storeName, franchiseContact, cellphone, email, address, message) VALUES ('$city', '$storeName', '$franchiseContact', '$cellphone', '$email', '$address', '$message')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Datos enviados correctamente. ¡Gracias por tu información!";
@@ -30,4 +33,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
 
