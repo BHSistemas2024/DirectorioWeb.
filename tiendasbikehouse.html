@@ -888,40 +888,37 @@
             });
         </script>
      
-     <form method="post" action="tiendasbikehouse.php">
      <section class="contact-container">
-        <div class="contact-left">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
           <div class="contact-left-title">
             <h2></h2>
             <hr>
           </div>
+          <input type="hidden" name="access_key" value="b067955f-da64-4440-b63b-3faad75a8504">
           <div class="contact-form">
-              <div class="contact-inputs-group">
-                <input type="text" name="region" placeholder="Region" class="contact-inputs" required>
-                <input type="text" name="storeName" placeholder="Nombre Tienda" class="contact-inputs" required>
-                <input type="text" name="administrator" placeholder="Administrador" class="contact-inputs" required>
-                <input type="email" name="cellphone" placeholder="Celular" class="contact-inputs" required>
-              </div>
-              <div class="contact-inputs-group">
-                <input type="text" name="email" placeholder="Correo Electrónico" class="contact-inputs" required>
-                <input type="text" name="address" placeholder="Dirección" class="contact-inputs" required>
-                <input type="text" name="provider" placeholder="Proveedor" class="contact-inputs" required>
-              </div>
-              <div class="contact-left-bottom">
-                <textarea name="message" id="message" placeholder="Tu mensaje" class="contact-inputs" required></textarea>
-                <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
-              </div>
-            </form> <!-- Cerrar el formulario aquí -->
+            <div class="contact-inputs-group">
+              <input type="text" name="region" placeholder="Region" class="contact-inputs" required>
+              <input type="text" name="storeName" placeholder="Nombre Tienda" class="contact-inputs" required>
+              <input type="text" name="administrator" placeholder="Administrador" class="contact-inputs" required>
+              <input type="email" name="cellphone" placeholder="Celular" class="contact-inputs" required>
+            </div>
+            <div class="contact-inputs-group">
+              <input type="text" name="email" placeholder="Correo Electrónico" class="contact-inputs" required>
+              <input type="text" name="address" placeholder="Dirección" class="contact-inputs" required>
+              <input type="text" name="provider" placeholder="Proveedor" class="contact-inputs" required>
+            </div>
+            <div class="contact-left-bottom">
+              <textarea name="message" id="message" placeholder="Tu mensaje" class="contact-inputs" required></textarea>
+              <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="access_key" value="b067955f-da64-4440-b63b-3faad75a8504">
+            </div>
           </div>
-        </div>
-        <div class="contact-right">
-          <img src="" alt="">
-        </div>
+        </form>
       </section>
-    
+      
+      
     </body>
     
     </html>
     
-
-
