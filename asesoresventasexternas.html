@@ -225,36 +225,35 @@
         });
     </script>
   
-  <form method="post" action="asesoresventasexternas.php">
-    <div class="contact-container">
-        <div class="contact-left">
-            <div class="contact-left-title">
-                <h2></h2>
-                <hr>
-            </div>
-            <div class="contact-form">
-                <div class="contact-inputs-group">
-                    <input type="text" name="area" placeholder="Área" class="contact-inputs" required>
-                    <input type="text" name="zone" placeholder="Zona Que Atiende" class="contact-inputs" required>
-                    <input type="text" name="name" placeholder="Nombre" class="contact-inputs" required>
-                    <input type="tel" name="cellphone" placeholder="Celular" class="contact-inputs" required pattern="[0-9]+">
-                </div>
-                <div class="contact-inputs-group">
-                    <input type="text" name="email" placeholder="Correo Electrónico" class="contact-inputs" required>
-                </div>
-            </div>
-            <div class="contact-left-bottom">
-                <textarea name="message" id="message" placeholder="Tu mensaje" class="contact-inputs" required></textarea>
-                <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
-            </div>
+  <div class="contact-container">
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+      <div class="contact-left-title">
+        <h2></h2>
+        <hr>
+      </div>
+      <input type="hidden" name="access_key" value="b067955f-da64-4440-b63b-3faad75a8504">
+      <div class="contact-form">
+        <div class="contact-inputs-group">
+          <input type="text" name="area" placeholder="Área" class="contact-inputs" required>
+          <input type="text" name="zone" placeholder="Zona Que Atiende" class="contact-inputs" required>
+          <input type="text" name="name" placeholder="Nombre" class="contact-inputs" required>
+          <input type="tel" name="cellphone" placeholder="Celular" class="contact-inputs" required pattern="[0-9]+">
         </div>
-        <div class="contact-right">
-            <img src="" alt="">
+        <div class="contact-inputs-group">
+          <input type="text" name="email" placeholder="Correo Electrónico" class="contact-inputs" required>
         </div>
-    </div>
-</form>
+        <div class="contact-left-bottom">
+          <textarea name="message" id="message" placeholder="Tu mensaje" class="contact-inputs" required></textarea>
+          <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
+        </div>
+      </div>
+      <div class="contact-right">
+        <img src="" alt="">
+      </div>
+    </form>
+  </div>
+  
 
   
   </body>
   </html>
-
