@@ -6,66 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bike House</title>
-
-    <!-- Estilos externos -->
+    <meta name="description" content="Descripción breve de Bike House"> 
+    <!-- Meta etiquetas de redes sociales -->
+    <meta property="og:title" content="Bike House">
+    <meta property="og:description" content="Descripción breve de Bike House">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Puedes elegir entre estos dos, según tus necesidades -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
+    <!-- Favicon -->
+    <link rel="icon" href="images/ICONO_NEGRO_256x256_b4339fbf-63b5-475b-88b3-de74296022de_32x.webp" sizes="32x32" type="image/png">
 
-
-    <!-- Icono de la página -->
-    <link rel="icon" href="images/ICONO_NEGRO_256x256_b4339fbf-63b5-475b-88b3-de74296022de_32x.webp">
-
-    <!-- Estilos locales -->
-    <link rel="stylesheet" href="style.css">
-</head>
-
+</head> 
 
 <body>
-    <header>
-        <div class="content">
-            <div class="menu container">
-                <a href="https://bikehouse.co/" class="logo">
-                    <img src="images/Logo_Bikehouse_Verde_Vineta_eea50f69-f579-4834-9f5d-0b82c835c457_255x (2).avif"
-                        alt="Logo de Bike House"></a>
-                <input type="checkbox" id="menu">
-                <label for="menu">
-                    <img class="menu-icono" src="images/menu-square-button_icon-icons.com_73216.png"
-                        alt="Icono del menú">
-                </label>
-                <nav class="navbar">
-                    <ul>
-                        <li><a href="tiendasbikehouse.html">Tiendas BikeHouse</a></li>
-                        <li><a href="tiendascliff.html">Tiendas Cliff</a></li>
-                        <li><a href="franquiciasbikehouse.html">Franquicias BikeHouse</a></li>
-                        <li><a href="ventasonline.html">Ventas Online</a></li>
-                        <li><a href="asesoresventasexternas.html">Asesores Ventas</a></li>
-                        <li><a href="administrador.html">Área Administrativa</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <div class="whatsapp-container">
-        <a href="https://d8tt.short.gy/BH20204" target="_blank">
-            <img src="images/whatsapp_logo_icon_147205.png" alt="WhatsApp">
-        </a>
+    <div id="texto-superior">
+        <h1 id="titulo">#DIRECTORIO BIKE HOUSE</h1>
+    </div>
+    
+    <img src="images/Logo_Bikehouse_Verde_Vineta_eea50f69-f579-4834-9f5d-0b82c835c457_545x.webp" alt="Logo Bikehouse">
+    <div id="textos-bajo-imagen">
+        <p><a href="tiendasbikehouse.html">TIENDAS BIKEHOUSE</a></p>
+        <p><a href="tiendascliff.html">TIENDAS CLIFF</a></p>
+        <p><a href="franquiciasbikehouse.html">FRANQUICIAS BIKE HOUSE</a></p>
+        <p><a href="ventasonline.html">VENTAS ONLINE</a></p>
+        <p><a href="asesoresventasexternas.html">ASESORES VENTAS</a></p>
+        <p id="texto-especial"><a href="administrador.html">AREA ADMINISTRATIVA</a></p>
     </div>
 
-    <body class="background-filter">
-        <!-- Contenido de la página -->
-     </body>
+    <div id="contenedor-nueva-imagen">
+
+    </div>
+    
+</body>
+
+<script>
+    // Espera a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtén el elemento h1
+    const titulo = document.getElementById('titulo');
+
+    // Agrega la clase "mostrar" para mostrar el texto inicialmente
+    document.getElementById('texto-superior').classList.add('mostrar');
+});
+</script>
 
 
-     
-    <script src="script.js"></script>
+
+    <!-- Agrega la referencia a html2canvas -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <!-- Agrega la referencia a jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
