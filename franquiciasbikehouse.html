@@ -20,23 +20,14 @@
 </head>
 
 <body>
-
-  <div class="search-container">
-    <div class="input-group">
-        <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
-        <span class="input-group-addon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
-    </div>
-    <button id="btnLimpiar" class="btn-limpiar">
-        Limpiar
-    </button>
-    <span class="icon-right">
-        <img src="images/icons8-flecha-hacia-abajo-50.png" alt="Icono de flecha hacia abajo"> <!-- Ajusta la ruta de la imagen según tu estructura de archivos -->
-        <p>Corrección</p>
-    </span>
-</div>
-<div id="mensajeNoResultados" style="display: none;"></div>      
+    <div class="search-container">
+        <div class="input-group">
+            <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
+            <span class="input-group-addon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+        </div>
+    </div>       
   
     <section class="container"> <!-- Agregué la clase "container" al elemento section -->
         <h1>FRANQUICIAS BIKE HOUSE</h1>
@@ -49,130 +40,69 @@
                         <th>PERSONA CONTACTO FRANQUICIA</th>
                         <th>CELULAR</th>
                         <th>CORREO ELECTRÓNICO</th>
-                        <th>DIRECCION</th>
+                        <th></th>
                     </tr>
                 </thead>
             </table>
         </div>
 
-        <section class="container aym">
-        <div class="tbl-content">
-            <table cellpadding="0" cellspacing="0" border="0">
-                <tbody>
-                    <tr>
-                        <td>MANIZALES</td>
-                        <td>BIKE HOUSE MANIZALES</td>
-                        <td>GILMA OROZCO</td>
-                        <td>311 341 01 58</td>
-                        <td>gilmabike@hotmail.com</td>
-                        <td>Carrera 23 #70A-63</td>
-                    </tr>
-                    <tr>
-                        <td>APARTADO</td>
-                        <td>BIKE HOUSE APARTADO</td>
-                        <td>SANTIAGO MUÑOZ</td>
-                        <td>3174319329 - 3113950041</td>
-                        <td>apartado@bikehouse.com.co</td>
-                        <td>Calle 99A N103-45, Apartadó, Antioquia</td>
-                    </tr>
-            </table>
-        </div>
-    </section>
+       
 
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="script3.js"></script>
+        <script>
+            const buscar = () => {
+                const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
+                const filas = document.querySelectorAll(".tbl-content tbody tr");
         
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script2.js"></script>
-    <script>
-      const buscar = () => {
-          const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
-          const filas = document.querySelectorAll(".tbl-content tbody tr");
-  
-          // Limpiar resultados anteriores
-          filas.forEach((fila) => {
-              fila.classList.remove("resultado");
-              const celdas = fila.querySelectorAll("td");
-              celdas.forEach((celda) => {
-                  celda.style.backgroundColor = "";
-              });
-          });
-  
-          if (textoBusqueda === "") {
-              // Ocultar mensaje de no resultados al limpiar
-              const mensajeNoResultados = document.getElementById("mensajeNoResultados");
-              mensajeNoResultados.style.display = "none";
-              return;
-          }
-  
-          const regex = new RegExp(textoBusqueda, "i");
-  
-          const filasEncontradas = Array.from(filas).filter((fila) => {
-              const celdas = fila.querySelectorAll("td");
-              return Array.from(celdas).some((celda) => regex.test(celda.textContent.trim()));
-          });
-  
-          if (filasEncontradas.length > 0) {
-              filasEncontradas.forEach((fila) => {
-                  fila.classList.add("resultado");
-                  fila.scrollIntoView({ behavior: "smooth" });
-  
-                  const celdasEncontradas = fila.querySelectorAll("td");
-                  celdasEncontradas.forEach((celda) => {
-                      celda.style.backgroundColor = "rgb(52, 152, 219)"
-                  });
-              });
-          } else {
-              // Mostrar mensaje de no resultados
-              const mensajeNoResultados = document.getElementById("mensajeNoResultados");
-              mensajeNoResultados.style.display = "block";
-          }
-      };
-  
-      const limpiarBusqueda = () => {
-          document.getElementById("busqueda").value = "";
-          buscar(); // Realizar la búsqueda para limpiar los resultados
-      };
-  
-      document.getElementById("busqueda").addEventListener("input", buscar);
-      document.getElementById("btnLimpiar").addEventListener("click", limpiarBusqueda);
-  
-      document.querySelector(".icon-right img").addEventListener("click", () => {
-          const finalDeLaPagina = document.querySelector("body");
-          finalDeLaPagina.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-      });
-  </script>
-
-<div class="contact-container">
-    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
-      <div class="contact-left-title">
-        <h2></h2>
-        <hr>
-      </div>
-      <input type="hidden" name="access_key" value="b067955f-da64-4440-b63b-3faad75a8504">
-      <div class="contact-form">
-        <div class="contact-inputs-group">
-          <input type="text" name="city" placeholder="Ciudad" class="contact-inputs" required>
-          <input type="text" name="storeName" placeholder="Nombre de la Tienda" class="contact-inputs" required>
-          <input type="text" name="franchiseContact" placeholder="Persona de Contacto (Franquicia)" class="contact-inputs" required>
-          <input type="tel" name="cellphone" placeholder="Celular" class="contact-inputs" required>
-        </div>
-        <div class="contact-inputs-group">
-          <input type="email" name="email" placeholder="Correo Electrónico" class="contact-inputs" required>
-          <input type="text" name="address" placeholder="Dirección" class="contact-inputs" required>
-        </div>
-        <div class="contact-left-bottom">
-          <textarea name="message" id="message" placeholder="Tu mensaje" class="contact-inputs" required></textarea>
-          <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
-        </div>
-      </div>
-      <div class="contact-right">
-        <img src="" alt="">
-      </div>
-    </form>
-  </div>
-  
+                // Limpiar resultados anteriores
+                filas.forEach((fila) => {
+                    fila.classList.remove("resultado");
+                    const celdas = fila.querySelectorAll("td");
+                    celdas.forEach((celda) => {
+                        celda.style.backgroundColor = "";
+                    });
+                });
+        
+                if (textoBusqueda === "") {
+                    // Ocultar mensaje de no resultados al limpiar
+                    const mensajeNoResultados = document.getElementById("mensajeNoResultados");
+                    mensajeNoResultados.style.display = "none";
+                    return;
+                }
+        
+                const regex = new RegExp(textoBusqueda, "i");
+        
+                const filasEncontradas = Array.from(filas).filter((fila) => {
+                    const celdas = fila.querySelectorAll("td");
+                    return Array.from(celdas).some((celda) => regex.test(celda.textContent.trim()));
+                });
+        
+                if (filasEncontradas.length > 0) {
+                    filasEncontradas.forEach((fila) => {
+                        fila.classList.add("resultado");
+                        fila.scrollIntoView({ behavior: "smooth" });
+        
+                        const celdasEncontradas = fila.querySelectorAll("td");
+                        celdasEncontradas.forEach((celda) => {
+                            celda.style.backgroundColor = "#FF0000"; // Cambia el color a rojo aquí
+                        });
+                    });
+                } else {
+                    // Mostrar mensaje de no resultados
+                    const mensajeNoResultados = document.getElementById("mensajeNoResultados");
+                    mensajeNoResultados.style.display = "block";
+                }
+            };
+        
+            document.getElementById("busqueda").addEventListener("input", buscar);
+        
+            document.querySelector(".icon-right img").addEventListener("click", () => {
+                const finalDeLaPagina = document.querySelector("body");
+                finalDeLaPagina.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+            });
+        </script>        
+    </body>
+    </html>
 
 
-
-
-</body>
-</html>
