@@ -22,6 +22,12 @@ body {
   font-size: var(--font-size-base);
   overflow-x: hidden;
 }
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
 .icon-right {
   cursor: pointer;
   margin-left: 10px;
@@ -30,30 +36,22 @@ body {
   align-items: center;
 }
 
-/* Estilo para la imagen dentro del contenedor */
 .icon-right img {
   margin-right: 5px;
-  border-radius: 50%; /* Agrega bordes redondeados a la imagen */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
-  transition: transform 0.3s ease; /* Agrega una transición suave al hacer hover */
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-/* Estilo para el texto dentro del contenedor */
 .icon-right p {
   color: #000000;
   margin: 0;
-  font-weight: bold; /* Agrega negrita al texto */
-}
-
-/* Cambios al hacer hover */
-.icon-right:hover img {
-  transform: scale(1.1); /* Hace que la imagen sea un poco más grande al hacer hover */
+  font-weight: bold;
 }
 
 .icon-right:hover p {
-  color: #3498db; /* Cambia el color del texto al hacer hover */
+  margin: 0;
 }
- 
 
 [data-tippy-content] {
   cursor: pointer;
@@ -64,26 +62,23 @@ body {
   max-width: 100%;
   margin: 20px auto;
   padding: 10px;
-  background-color: #0000009e;
+  background-color: rgb(0 0 0);
   border-radius: var(--border-radius);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 h1 {
   font-size: var(--font-size-large);
-  text-transform: uppercase;
-  font-weight: 500;
   text-align: center;
   margin-bottom: 1em;
-  color: var(--main-color);
-  transition: color 0.3s ease-in-out;
+  color: #ffffff;
 }
 
 h1:hover {
   color: #fffefe;
-  text-shadow: 0 0 5px #3498db, 0 0 10px #5f4e4e, 0 0 15px #ecf0f1;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff;
   cursor: pointer;
-  transform: scale(1.05);
+  transform: scale(1.00);
 }
 
 table {
@@ -106,10 +101,9 @@ table {
 }
 
 th, td {
-  padding: 1em;
+  padding: 0cm;
   text-align: center;
-  font-weight: lighter;
-  border-bottom: solid 1px var(--table-line-color);
+  border-bottom: solid 1px #ffffff;
 }
 
 th {
@@ -117,16 +111,13 @@ th {
   text-transform: uppercase;
   transition: background-color 0.0s ease-in-out;
   color: black;
-  cursor: pointer;
+  padding: 20px;
 }
 
 th:hover {
   color: #000000;
-  cursor: pointer;
-  background-color: rgb(41, 128, 185);
 }
 
-/* Contenedor principal */
 .search-container {
   display: flex;
   align-items: flex-start;
@@ -137,14 +128,14 @@ th:hover {
   max-width: 300px;
   margin-right: 10px;
   display: flex;
-  border: 2px solid #3498db;
+  border: 2px solid #000000;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease-in-out;
 }
 
 .input-group:focus-within {
-  border-color: #2980b9;
+  border-color: #000000;
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -162,7 +153,7 @@ th:hover {
 }
 
 .input-group-addon {
-  background-color: #3498db;
+  background-color: #000000;
   color: #fff;
   border-radius: 0 15px 15px 0;
   cursor: pointer;
@@ -170,7 +161,7 @@ th:hover {
 }
 
 .input-group-addon:hover {
-  background-color: #2980b9;
+  background-color: #000000;
 }
 
 .fas.fa-search {
@@ -178,7 +169,6 @@ th:hover {
   margin-top: -2px;
 }
 
-/* Estilos para el botón de limpiar */
 .btn-limpiar {
   display: inline-block;
   padding: 10px 15px;
@@ -187,25 +177,31 @@ th:hover {
   text-decoration: none;
   cursor: pointer;
   border-radius: 5px;
-  background-color: #3498db;
+  background-color: #000000;
   color: #fff;
   transition: transform 0.3s ease;
   margin-top: 2px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  
-}
-
-
-.btn-limpiar:hover {
-  background-color: #3498db;
 }
 
 .btn-limpiar:hover {
-  transform: scale(1.1); /* Hace que la imagen sea un poco más grande al hacer hover */
+  background-color: #000000;
 }
 
-/* Estilos para la sección de contacto */
+.btn-limpiar:hover {
+  transform: scale(1.1);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .contact-container {
   height: 84vh;
   justify-content: center;
@@ -224,7 +220,7 @@ th:hover {
 
 .contact-left-title h2 {
   font-weight: 600;
-  color: #3498db;
+  color: #000000;
   font-size: 40px;
   margin-bottom: 5px;
 }
@@ -233,7 +229,7 @@ th:hover {
   border: none;
   width: 120px;
   height: 5px;
-  background-color: #3498db;
+  background-color: #000000;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -249,9 +245,10 @@ th:hover {
   display: flex;
   gap: 20px;
 }
+
 .contact-inputs {
   width: 100%;
-  /* max-width: 400px; */
+  max-width: 400px;
   height: 50px;
   border: none;
   outline: none;
@@ -278,7 +275,7 @@ th:hover {
 }
 
 .contact-inputs:focus {
-  border: 2px solid #3498db;
+  margin: 0;
 }
 
 .contact-inputs::placeholder {
@@ -295,7 +292,6 @@ th:hover {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  background: linear-gradient(270deg, #3498db, #3498db);
 }
 
 .contact-left button img {
@@ -311,99 +307,81 @@ th:hover {
   width: 500px;
 }
 
-
-
 @media (max-width: 1099px) {
-body {
-  font-size: 16px;
-}
+  /* Tamaño de fuente */
+  body {
+    font-size: 16px;
+  }
 
-h1 {
-  font-size: 24px;
-}
+  h1 {
+    font-size: 24px;
+  }
 
-table {
-  table-layout: auto;
-  width: 100%;
-  margin-top: 1em;
-}
+  /* Tabla */
+  table {
+    table-layout: auto;
+    width: 100%;
+    margin-top: 1em;
+  }
 
-th,
-td {
-  display: block;
-  box-sizing: border-box;
-  padding: 10px;
-  text-align: left;
-  border-bottom: 1px solid transparent;
-  margin-bottom: 10px;
-  transition: background-color 0.3s;
-}
+  th, td {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid transparent;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+  }
 
-th:hover,
-td:hover {
-  background-color: #000000;
-  color: #ffffff;
-}
+  td:last-child {
+    border-bottom: 1px solid var(--table-line-color);
+    margin-bottom: 0;
+  }
 
-td:last-child {
-  border-bottom: 1px solid var(--table-line-color);
-  margin-bottom: 0;
-}
+  /* Formulario */
+  .input-group {
+    width: 100%;
+    margin-right: 0;
+  }
 
-.input-group {
-  width: 100%;
-}
+  .form-control, .contact-inputs {
+    width: 100%;
+    padding: 15px;
+    max-width: none;
+  }
 
-.form-control {
-  padding: 15px;
-}
-.contact-inputs {
-  width: 100%;
-  max-width: none;
-}
-.contact-right {
-  display: none;
-}
-body {
-  overflow-x: hidden;
-}
+  /* Sección de contacto */
+  .contact-right {
+    display: none;
+  }
 
-/* Resto de tus reglas para dispositivos de hasta 768px */
-.container, 
-.contact-container,
-.contact-left {
-  max-width: 100%;
-  margin: 0;
-  border-radius: 0;
-  box-shadow: none;
-  text-align: center;
-}
+  .contact-container, .container, .contact-left {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: center;
+  }
 
-.contact-container {
-  height: auto;
-}
+  .contact-container {
+    height: auto;
+  }
 
-.contact-left {
-  margin-left: 0;
-}
+  .contact-left {
+    margin-left: 0;
+  }
 
-.contact-right img {
-  width: 100%;
-}
+  .contact-right img {
+    width: 100%;
+  }
 
-.contact-inputs-group {
-  flex-wrap: wrap;
-  text-align: center;
-}
+  .contact-inputs-group {
+    flex-wrap: wrap;
+    text-align: center;
+  }
 
-.input-group {
-  width: 100%;
-  max-width: none;
-  margin-right: 0;
-}
-
-.input-group-addon {
-  border-radius: 15px;
-}
-/* Resto de tus reglas para dispositivos de hasta 768px */
+  .input-group-addon {
+    border-radius: 15px;
+  }
 }
