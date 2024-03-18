@@ -10,7 +10,7 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style7.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
+    <link rel="stylesheet" href="style6.css"> <!-- Asegúrate de que el nombre del archivo CSS sea correcto -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="icon" href="images/ICONO_NEGRO_256x256_b4339fbf-63b5-475b-88b3-de74296022de_32x.webp">
     <!-- Agrega la referencia a html2canvas -->
@@ -20,23 +20,14 @@
 </head>
 
 <body>
-
-  <div class="search-container">
-    <div class="input-group">
-        <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
-        <span class="input-group-addon">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </span>
-    </div>
-    <button id="btnLimpiar" class="btn-limpiar">
-        Limpiar
-    </button>
-    <span class="icon-right">
-        <img src="images/icons8-flecha-hacia-abajo-50.png" alt="Icono de flecha hacia abajo"> <!-- Ajusta la ruta de la imagen según tu estructura de archivos -->
-        <p>Corrección</p>
-    </span>
-</div>
-<div id="mensajeNoResultados" style="display: none;"></div>      
+    <div class="search-container">
+        <div class="input-group">
+            <input type="text" id="busqueda" class="form-control" placeholder="Buscar por nombre, correo electrónico, dirección o región">
+            <span class="input-group-addon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+        </div>
+    </div>      
   
 <section class="container">
   <h1>AREA  ADMINISTRATIVA</h1>
@@ -651,7 +642,7 @@
         <tr>
           <td>MÓNICA JIMÉNEZ MALAVER</td>
           <td>ANALISTA FINANCIERA</td>
-          <td>312 4690787</td>
+          <td>313 469 07 87</td>
           <td>analistafinanciera@bikehouse.co</td>
           <td>DREAM</td>
         </tr>
@@ -661,97 +652,60 @@
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script6.js"></script>
-    <script>
-      const buscar = () => {
-          const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
-          const filas = document.querySelectorAll(".tbl-content tbody tr");
-  
-          // Limpiar resultados anteriores
-          filas.forEach((fila) => {
-              fila.classList.remove("resultado");
-              const celdas = fila.querySelectorAll("td");
-              celdas.forEach((celda) => {
-                  celda.style.backgroundColor = "";
-              });
-          });
-  
-          if (textoBusqueda === "") {
-              // Ocultar mensaje de no resultados al limpiar
-              const mensajeNoResultados = document.getElementById("mensajeNoResultados");
-              mensajeNoResultados.style.display = "none";
-              return;
-          }
-  
-          const regex = new RegExp(textoBusqueda, "i");
-  
-          const filasEncontradas = Array.from(filas).filter((fila) => {
-              const celdas = fila.querySelectorAll("td");
-              return Array.from(celdas).some((celda) => regex.test(celda.textContent.trim()));
-          });
-  
-          if (filasEncontradas.length > 0) {
-              filasEncontradas.forEach((fila) => {
-                  fila.classList.add("resultado");
-                  fila.scrollIntoView({ behavior: "smooth" });
-  
-                  const celdasEncontradas = fila.querySelectorAll("td");
-                  celdasEncontradas.forEach((celda) => {
-                      celda.style.backgroundColor = "rgb(52, 152, 219)"
-                  });
-              });
-          } else {
-              // Mostrar mensaje de no resultados
-              const mensajeNoResultados = document.getElementById("mensajeNoResultados");
-              mensajeNoResultados.style.display = "block";
-          }
-      };
-  
-      const limpiarBusqueda = () => {
-          document.getElementById("busqueda").value = "";
-          buscar(); // Realizar la búsqueda para limpiar los resultados
-      };
-  
-      document.getElementById("busqueda").addEventListener("input", buscar);
-      document.getElementById("btnLimpiar").addEventListener("click", limpiarBusqueda);
-  
-      document.querySelector(".icon-right img").addEventListener("click", () => {
-          const finalDeLaPagina = document.querySelector("body");
-          finalDeLaPagina.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
-      });
-  </script>
+        <script src="script3.js"></script>
+        <script>
+            const buscar = () => {
+                const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
+                const filas = document.querySelectorAll(".tbl-content tbody tr");
+        
+                // Limpiar resultados anteriores
+                filas.forEach((fila) => {
+                    fila.classList.remove("resultado");
+                    const celdas = fila.querySelectorAll("td");
+                    celdas.forEach((celda) => {
+                        celda.style.backgroundColor = "";
+                    });
+                });
+        
+                if (textoBusqueda === "") {
+                    // Ocultar mensaje de no resultados al limpiar
+                    const mensajeNoResultados = document.getElementById("mensajeNoResultados");
+                    mensajeNoResultados.style.display = "none";
+                    return;
+                }
+        
+                const regex = new RegExp(textoBusqueda, "i");
+        
+                const filasEncontradas = Array.from(filas).filter((fila) => {
+                    const celdas = fila.querySelectorAll("td");
+                    return Array.from(celdas).some((celda) => regex.test(celda.textContent.trim()));
+                });
+        
+                if (filasEncontradas.length > 0) {
+                    filasEncontradas.forEach((fila) => {
+                        fila.classList.add("resultado");
+                        fila.scrollIntoView({ behavior: "smooth" });
+        
+                        const celdasEncontradas = fila.querySelectorAll("td");
+                        celdasEncontradas.forEach((celda) => {
+                            celda.style.backgroundColor = "#FF0000"; // Cambia el color a rojo aquí
+                        });
+                    });
+                } else {
+                    // Mostrar mensaje de no resultados
+                    const mensajeNoResultados = document.getElementById("mensajeNoResultados");
+                    mensajeNoResultados.style.display = "block";
+                }
+            };
+        
+            document.getElementById("busqueda").addEventListener("input", buscar);
+        
+            document.querySelector(".icon-right img").addEventListener("click", () => {
+                const finalDeLaPagina = document.querySelector("body");
+                finalDeLaPagina.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+            });
+        </script>        
+    </body>
+    </html>
 
-<div class="contact-container">
-  <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
-    <div class="contact-left-title">
-      <h2></h2>
-      <hr>
-    </div>
-    <input type="hidden" name="access_key" value="b067955f-da64-4440-b63b-3faad75a8504">
-    <div class="contact-form">
-      <div class="contact-inputs-group">
-        <input type="text" name="personal" placeholder="Personal" class="contact-inputs" required>
-        <input type="text" name="cellphone" placeholder="Celular - Extensión" class="contact-inputs" required>
-        <input type="text" name="cargo" placeholder="Cargo - Centro de Costos" class="contact-inputs" required>
-        <input type="email" name="email" placeholder="Correo" class="contact-inputs" required>
-      </div>
-      <div class="contact-inputs-group">
-        <input type="text" name="ubicacion" placeholder="Ubicación" class="contact-inputs" required>
-      </div>
-      <div class="contact-left-bottom">
-        <textarea name="message" id="message" placeholder="Tu mensaje" class="contact-inputs" required></textarea>
-        <button type="submit">Enviar <img src="images/arrow_icon.png" alt=""></button>
-      </div>
-    </div>
-    <div class="contact-right">
-      <img src="" alt="">
-    </div>
-  </form>
-</div>
-
-
-
-
-</body>
-</html>
 
