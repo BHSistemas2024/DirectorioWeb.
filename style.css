@@ -1,8 +1,21 @@
-#texto-superior {
-    background-color: black;
-    color: white;
+:root {
+    --color-negro: #ffffff; /* Utilizando el código hexadecimal para el negro */
+    --color-blanco: #000000; /* Utilizando el código hexadecimal para el blanco */
+    --fuente-base: Arial, sans-serif; /* No es necesario colocar comillas si el nombre de la fuente no tiene espacios */
+  }
+  
+  /* Definiendo el degradado para el fondo */
+  :root {
+    --color-fondo: linear-gradient(to bottom, #333, var(--color-blanco)); /* Utilizando un negro más brillante en el degradado */
+  }
+  
+  /* Aplicando el fondo al cuerpo de la página */
+  body {
+    background-image: var(--color-fondo); /* Aplicando el degradado como fondo */
+  }
+  
+  #texto-superior {
     padding: 10px;
-    text-align: center;
     position: fixed;
     width: 100%;
     height: 7%;
@@ -13,50 +26,50 @@
     justify-content: center;
     z-index: 999;
     overflow: hidden;
-}
+  }
 
-#texto-superior h1 {
-    margin: 0;
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-    animation: desplazamiento 30s linear infinite; 
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 28px; /* Ajusta el tamaño del texto según sea necesario */
-    letter-spacing: 2px; /* Ajusta el espaciado entre letras */
-}
+  #texto-especial {
+    padding: 20px;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+  }
 
-@keyframes desplazamiento {
+  @keyframes desplazamiento {
     0%, 100% {
-        transform: translateX(-100%);
-        opacity: 0; /* Hace que el texto sea invisible al principio y al final */
+      transform: translateX(-100%);
+      opacity: 0;
     }
     25%, 75% {
-        transform: translateX(0); /* Mantiene el texto visible en el centro durante el 50% de la animación */
-        opacity: 1; /* Hace que el texto sea totalmente visible en el centro */
+      transform: translateX(0);
+      opacity: 1;
     }
     50% {
-        transform: translateX(100%);
-        opacity: 0; /* Hace que el texto sea invisible en la mitad de la animación */
+      transform: translateX(100%);
+      opacity: 0;
     }
-}
+  }
 
 
-body img {
+  body img {
     display: block;
-    margin: 65px auto 20px; /* Ajusta el margen superior según sea necesario */
+    margin: 65px auto 20px;
     max-width: 25%;
     max-height: 50vh;
     height: auto;
-    text-align: center; /* Centrar horizontalmente */
-    line-height: 50vh; /* Centrar verticalmente */
+    text-align: center;
+    line-height: 50vh;
     cursor: pointer;
-}
+    margin-top: 20px;
+  }
 
-img {
+  img {
     display: block;
-    margin: 20px auto; /* Ajusta el margen superior según sea necesario */
+    margin: 20px auto;
     max-width: 100%;
     height: auto;
-}
+  }
+  
 
 /* Estilo para los textos */
 #texto-superior,
@@ -67,33 +80,33 @@ img {
 
 #textos-bajo-imagen p,
 #textos-bajo-imagen a {
-    display: inline-block;
-    margin: 0 5px; /* Ajusta el espacio entre los textos según sea necesario */
-    font-size: 13px; /* Tamaño del texto */
-    font-weight: bold; /* Grosor del texto */
-    font-family: 'Arial', sans-serif; /* Tipo de fuente */
-    text-decoration: none; /* Elimina el subrayado predeterminado */
-    color: #000; /* Color del texto (negro) */
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: var(--fuente-base);
+  text-decoration: none;
+  color: var(--color-negro);
 }
 
 #contenedor-textos {
     position: relative;
     z-index: 1;
-}
+  }
 
 /* Estilo para el contenedor de la nueva imagen */
 #contenedor-nueva-imagen {
-    background: url('images/space.jpg') no-repeat center top fixed;
-    background-size: cover; /* Ajusta el tamaño para cubrir el contenedor */
-    height: 75vh; /* Altura al 100% de la ventana */
-    margin: 25px 0 0; /* Ajusta el margen superior según sea necesario */
+    background: url('images/OIG1.jpg') no-repeat center top fixed;
+    background-size: cover;
+    height: 75vh;
+    margin: 25px 0 0;
     position: relative;
     z-index: 0;
-    background-position: center 20%; /* Ajusta el valor para bajar la imagen más */
-}
+    background-position: center 20%;
+  }
 
 #texto-especial {
-    background-color: red;
+    background-color: rgb(255, 255, 255);
     color: white; /* Cambia el color del texto a blanco */
     padding: 20px; /* Ajusta el tamaño del relleno según tus preferencias */
     text-align: center;
@@ -106,9 +119,8 @@ img {
 }
 
 #texto-especial a {
-    color: white !important; /* Añade !important para asegurar que este estilo tenga prioridad */
-    font-family: 'Arial', sans-serif;
+    color: var(--color-blanco) !important;
+    font-family: var(--fuente-base);
     font-size: 14px;
     font-weight: bold;
-}
-
+  }
