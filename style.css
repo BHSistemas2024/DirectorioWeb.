@@ -1,4 +1,4 @@
-/* Definiendo las variables */
+
 :root {
     --color-negro: #000;
     --color-blanco: #fff;
@@ -108,7 +108,7 @@
   
   /* Estilo para el texto especial */
   #texto-especial {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgb(255, 0, 0);
     color: #fff;
     padding: 20px;
     text-align: center;
