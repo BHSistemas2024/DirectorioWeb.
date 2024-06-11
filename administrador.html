@@ -723,7 +723,7 @@ function exportarExcel() {
         ws['!rows'] = ws['!rows'] || [];
         ws['!rows'][R] = {
             height: 10, // Altura de la fila en puntos
-            hidden: true, // La fila no está oculta
+            hidden: false, // La fila no está oculta
             outlineLevel: 0, // Nivel de esquema de la fila
             collapsed: false // La fila no está colapsada
         };
@@ -736,7 +736,7 @@ function exportarExcel() {
         ws['!cols'] = ws['!cols'] || [];
         ws['!cols'][C] = {
             width: 80, // Ancho de la columna en puntos
-            hidden: true, // La columna no está oculta
+            hidden: false, // La columna no está oculta
             outlineLevel: 0, // Nivel de esquema de la columna
             collapsed: false // La columna no está colapsada
         };
