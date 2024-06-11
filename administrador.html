@@ -688,7 +688,7 @@
         var rowIndex = 0;
         tablas.forEach((tabla, index) => {
             // Agregar el nombre de la tabla como una fila antes de los datos de la tabla
-            XLSX.utils.sheet_add_aoa(ws, [[(index + 1)]], {origin: rowIndex});
+            XLSX.utils.sheet_add_aoa(ws, {origin: rowIndex});
             rowIndex++;
             
             // Clonar cada fila de la tabla original
