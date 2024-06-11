@@ -688,7 +688,7 @@ function exportarExcel() {
     // Recorrer cada tabla
     tablas.forEach((tabla, index) => {
         // Agregar el nombre de la tabla como una fila
-        allData.push(['Tabla: ' + tabla.id]);
+        allData.push(['Nombre de la Tabla: ' + tabla.id]);
 
         // Recorrer cada fila de la tabla original y añadirla a la matriz
         Array.from(tabla.rows).forEach(row => {
@@ -698,8 +698,6 @@ function exportarExcel() {
             });
             allData.push(rowData);
         });
-        // Agregar una fila vacía para separar las tablas
-        allData.push([]);
     });
 
     // Convertir la matriz combinada en una hoja de Excel
@@ -713,8 +711,8 @@ function exportarExcel() {
             var cell_ref = XLSX.utils.encode_cell(cell_address);
             if (!ws[cell_ref]) continue;
             ws[cell_ref].s = {
-                font: { name: "Arial", bold: true },
-                fill: { patternType: "solid", fgColor: { rgb: "FFA07A" } }, // Color del fondo: salmón claro
+                font: { name: "Arial", bold: false },
+                fill: { patternType: "solid", fgColor: { rgb: "FFFFAA00" } },
                 border: { top: { style: "thin", color: { rgb: "000000" } }, bottom: { style: "thin", color: { rgb: "000000" } }, left: { style: "thin", color: { rgb: "000000" } }, right: { style: "thin", color: { rgb: "000000" } } }
             };
         }
