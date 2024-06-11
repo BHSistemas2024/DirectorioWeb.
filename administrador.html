@@ -674,12 +674,28 @@
 </section>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script src="script3.js"></script>
-        <script>
-            function exportarExcel() {
-                var tabla = document.getElementById("tabla1"+"tabla2"+"tabla3"+"tabla4"+"tabla5"+"tabla6"+"tabla7"+"tabla8"+"tabla9"+"tabla10"+"tabla11"+"tabla12"+"tabla13"+"tabla14"+"tabla15"+"tabla16"+"tabla17"+"tabla19"+"tabla20");
-                var archivoExcel = XLSX.utils.table_to_book(tabla, {sheet:"AREA ADMINISTRATIVA"});
-                XLSX.writeFile(archivoExcel, "AREA ADMINISTRATIVA.xlsx");
-            }
+        <scr<button onclick="exportarExcel()">Exportar a Excel</button>
+
+<script>
+    function exportarExcel() {
+        // Crear un libro de trabajo vacío
+        var wb = XLSX.utils.book_new();
+
+        // Obtener todas las tablas
+        var tablas = document.querySelectorAll('.tbl-content table');
+
+        // Iterar sobre cada tabla y agregarla al libro de trabajo
+        tablas.forEach((tabla, index) => {
+            // Crear una hoja con un nombre único para cada tabla
+            var ws = XLSX.utils.table_to_sheet(tabla, {sheet: 'Tabla ' + (index + 1)});
+            // Agregar la hoja al libro de trabajo
+            XLSX.utils.book_append_sheet(wb, ws, 'Tabla ' + (index + 1));
+        });
+
+        // Guardar el libro de trabajo como archivo Excel
+        XLSX.writeFile(wb, 'exportacion.xlsx');
+    }
+
 
             
             const buscar = () => {
