@@ -703,25 +703,27 @@ function exportarExcel() {
     // Convertir la matriz combinada en una hoja de Excel
     var ws = XLSX.utils.aoa_to_sheet(allData);
 
+    // Establecer estilos para la tabla en Excel
+    var range = XLSX.utils.decode_range(ws['!ref']);
+    for (var R = range.s.r; R <= range.e.r; ++R) {
+        for (var C = range.s.c; C <= range.e.c; ++C) {
+            var cell_address = { c: C, r: R };
+            var cell_ref = XLSX.utils.encode_cell(cell_address);
+            if (!ws[cell_ref]) continue;
+            ws[cell_ref].s = {
+                font: { name: "Arial", bold: false },
+                fill: { patternType: "solid", fgColor: { rgb: "FFFFAA00" } },
+                border: { top: { style: "thin", color: { rgb: "000000" } }, bottom: { style: "thin", color: { rgb: "000000" } }, left: { style: "thin", color: { rgb: "000000" } }, right: { style: "thin", color: { rgb: "000000" } } }
+            };
+        }
+    }
+
     // Agregar la hoja al libro de trabajo
     XLSX.utils.book_append_sheet(wb, ws, 'Todas las Tablas');
-
-    // Establecer el estilo para que las tablas tengan un formato básico
-    var range = XLSX.utils.decode_range(ws['!ref']);
-    for (var C = range.s.c; C <= range.e.c; ++C) {
-        var cell_address = { c: C, r: 0 };
-        var cell_ref = XLSX.utils.encode_cell(cell_address);
-        if (!ws[cell_ref]) continue;
-        ws[cell_ref].s = {
-            font: { bold: true },
-            fill: { patternType: "solid", fgColor: { rgb: "CCCCCC" } }
-        };
-    }
 
     // Guardar el libro de trabajo como archivo Excel
     XLSX.writeFile(wb, 'exportacion.xlsx');
 }
-
 
             const buscar = () => {
                 const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
