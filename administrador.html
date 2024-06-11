@@ -675,56 +675,26 @@
   </div>
 </section>
 <script>
-function exportarExcel() {
-    // Crear un libro de trabajo vacío
+function exportToExcel() {
+    // Crear un objeto Workbook de Excel
     var wb = XLSX.utils.book_new();
 
-    // Crear una matriz para almacenar todos los datos de las tablas
-    var allData = [];
-
-    // Obtener todas las tablas y combinarlas en una sola
-    var tablas = document.querySelectorAll('.tbl-content table');
-    
-    // Recorrer cada tabla
-    tablas.forEach((tabla, index) => {
-        // Agregar el nombre de la tabla como una fila
-        allData.push([tabla.id]);
-
-        // Recorrer cada fila de la tabla original y añadirla a la matriz
-        Array.from(tabla.rows).forEach(row => {
-            var rowData = [];
+    // Recorrer todas las tablas y agregarlas al libro de Excel
+    document.querySelectorAll('.tbl-content table').forEach(table => {
+        var ws_data = [];
+        Array.from(table.getElementsByTagName('tr')).forEach(row => {
+            var row_data = [];
             Array.from(row.cells).forEach(cell => {
-                rowData.push(cell.textContent);
+                row_data.push(cell.textContent.trim());
             });
-            allData.push(rowData);
+            ws_data.push(row_data);
         });
-        // Agregar una fila vacía para separar las tablas
-        allData.push([]);
+        var ws = XLSX.utils.aoa_to_sheet(ws_data);
+        XLSX.utils.book_append_sheet(wb, ws, table.parentElement.querySelector('h1').textContent);
     });
 
-    // Convertir la matriz combinada en una hoja de Excel
-    var ws = XLSX.utils.aoa_to_sheet(allData);
-
-    // Establecer estilos para la tabla en Excel
-    var range = XLSX.utils.decode_range(ws['!ref']);
-    for (var R = range.s.r; R <= range.e.r; ++R) {
-        for (var C = range.s.c; C <= range.e.c; ++C) {
-            var cell_address = { c: C, r: R };
-            var cell_ref = XLSX.utils.encode_cell(cell_address);
-            if (!ws[cell_ref]) continue;
-            ws[cell_ref].s = {
-                font: { name: "Arial", bold: true },
-                fill: { patternType: "solid", fgColor: { rgb: "FFA07A" } }, // Color del fondo: salmón claro
-                border: { top: { style: "thin", color: { rgb: "000000" } }, bottom: { style: "thin", color: { rgb: "000000" } }, left: { style: "thin", color: { rgb: "000000" } }, right: { style: "thin", color: { rgb: "000000" } } }
-            };
-        }
-    }
-
-    // Agregar la hoja al libro de trabajo
-    XLSX.utils.book_append_sheet(wb, ws, 'Todas las Tablas');
-
-    // Guardar el libro de trabajo como archivo Excel
-    XLSX.writeFile(wb, 'exportacion.xlsx');
+    // Guardar el libro de Excel
+    XLSX.writeFile(wb, 'datos.xlsx');
 }
 
             const buscar = () => {
