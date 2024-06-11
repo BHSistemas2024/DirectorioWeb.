@@ -722,17 +722,17 @@ function exportarExcel() {
             if (!ws[cell_ref]) continue;
             ws[cell_ref].s = {
                 font: { name: "Arial", bold: true },
-                fill: { patternType: "solid", fgColor: { rgb: "FFFFAA00" } }, // Color del fondo: amarillo claro
-                border: { top: { style: "thin", color: { rgb: "000000" } }, bottom: { style: "thin", color: { rgb: "000000" } }, left: { style: "thin", color: { rgb: "000000" } }, right: { style: "thin", color: { rgb: "000000" } } }
+                fill: { patternType: "solid", fgColor: { rgb: "#FFDD99" } },
+                border: { top: { style: "thin", color: { rgb: "#EAECEE" } }, bottom: { style: "thin", color: { rgb: "#797D7F " } }, left: { style: "thin", color: { rgb: "#A04000" } }, right: { style: "thin", color: { rgb: "#F9E79F" } } }
             };
         }
     }
 
     // Agregar la hoja al libro de trabajo
-    XLSX.utils.book_append_sheet(wb, ws, 'Todas las Tablas');
+    XLSX.utils.book_append_sheet(wb, ws, 'AREA ADMINISTRATIVA');
 
     // Guardar el libro de trabajo como archivo Excel
-    XLSX.writeFile(wb, 'exportacion.xlsx');
+    XLSX.writeFile(wb, 'area_administrativa.xlsx');
 }
 
             const buscar = () => {
