@@ -684,7 +684,16 @@
 
         // Obtener todas las tablas y combinarlas en una sola
         var tablas = document.querySelectorAll('.tbl-content table');
-        tablas.forEach(tabla => {
+        tablas.forEach((tabla, index) => {
+            // Agregar el nombre de la tabla como una fila antes de los datos de la tabla
+            var nombreTablaRow = document.createElement('tr');
+            var nombreTablaCell = document.createElement('td');
+            nombreTablaCell.colSpan = tabla.rows[0].cells.length; // Asegurar que el nombre cubra todas las columnas
+            nombreTablaCell.textContent = 'Nombre de la Tabla: ' + (index + 1);
+            nombreTablaRow.appendChild(nombreTablaCell);
+            tbody.appendChild(nombreTablaRow);
+
+            // Clonar cada fila de la tabla original
             Array.from(tabla.rows).forEach(row => {
                 tbody.appendChild(row.cloneNode(true));
             });
@@ -700,6 +709,7 @@
         // Guardar el libro de trabajo como archivo Excel
         XLSX.writeFile(wb, 'exportacion.xlsx');
     }
+
 
 
 
