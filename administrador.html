@@ -679,36 +679,21 @@ function exportarExcel() {
     // Crear un libro de trabajo vacío
     var wb = XLSX.utils.book_new();
 
-    // Obtener todas las tablas y combinarlas en una sola
+    // Obtener todas las tablas
     var tablas = document.querySelectorAll('.tbl-content table');
-    
+
     // Recorrer cada tabla
     tablas.forEach((tabla, index) => {
-        // Aplicar estilos básicos a la tabla
-        tabla.style.borderCollapse = "collapse";
-        tabla.style.width = "100%";
-        tabla.style.border = "1px solid #000";
-
-        // Recorrer cada fila de la tabla original y aplicar estilos
-        Array.from(tabla.rows).forEach(row => {
-            row.style.border = "1px solid #000";
-            Array.from(row.cells).forEach(cell => {
-                cell.style.border = "1px solid #000";
-                cell.style.padding = "8px";
-                cell.style.fontFamily = "Arial";
-                cell.style.fontSize = "14px";
-            });
-        });
-
         // Crear una matriz para almacenar todos los datos de la tabla
         var tableData = [];
 
-        // Agregar el nombre de la tabla como una fila
+        // Agregar el nombre de la tabla como primera fila
         tableData.push([tabla.id]);
 
-        // Recorrer cada fila de la tabla original y añadirla a la matriz
+        // Recorrer cada fila de la tabla
         Array.from(tabla.rows).forEach(row => {
             var rowData = [];
+            // Recorrer cada celda de la fila
             Array.from(row.cells).forEach(cell => {
                 rowData.push(cell.textContent);
             });
@@ -718,7 +703,7 @@ function exportarExcel() {
         // Convertir la matriz en una hoja de Excel
         var ws = XLSX.utils.aoa_to_sheet(tableData);
 
-        // Establecer estilos para la tabla en Excel
+        // Establecer estilos para la hoja de Excel
         var range = XLSX.utils.decode_range(ws['!ref']);
         for (var R = range.s.r; R <= range.e.r; ++R) {
             for (var C = range.s.c; C <= range.e.c; ++C) {
