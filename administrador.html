@@ -28,7 +28,6 @@
             </span>
         </div>
     </div>      
-   <button> onclick="exportarExcel()">Exportar a Excel</button>
 
 <section class="container">
   <h1>AREA  ADMINISTRATIVA</h1>
@@ -669,16 +668,19 @@
         </tr>
       </tbody>
     </table>
+      <button onclick="exportarExcel()">Exportar a Excel</button>
+
   </div>
 </section>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script src="script3.js"></script>
         <script>
             function exportarExcel() {
-                var tabla = document.getElementByID("1");
+                var tabla = document.getElementById("1");
                 var archivoExcel = XLSX.utils.table_to_book(tabla, {sheet:"AREA ADMINISTRATIVA"});
-                XLSX.writeFile(archivoWxcel, "AREA ADMINISTRATIVA.xlsx");
+                XLSX.writeFile(archivoExcel, "AREA ADMINISTRATIVA.xlsx");
             }
+
             
             const buscar = () => {
                 const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
