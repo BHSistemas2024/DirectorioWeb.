@@ -679,12 +679,15 @@ function exportarExcel() {
     // Crear un libro de trabajo vacío
     var wb = XLSX.utils.book_new();
 
+    // Crear una matriz para almacenar todos los datos de todas las tablas
+    var allTableData = [];
+
     // Obtener todas las tablas
     var tablas = document.querySelectorAll('.tbl-content table');
 
     // Recorrer cada tabla
     tablas.forEach((tabla, index) => {
-        // Crear una matriz para almacenar todos los datos de la tabla
+        // Crear una matriz para almacenar todos los datos de la tabla actual
         var tableData = [];
 
         // Agregar el nombre de la tabla como primera fila
@@ -700,27 +703,33 @@ function exportarExcel() {
             tableData.push(rowData);
         });
 
-        // Convertir la matriz en una hoja de Excel
-        var ws = XLSX.utils.aoa_to_sheet(tableData);
+        // Agregar una fila en blanco para separar las tablas
+        tableData.push([]);
 
-        // Establecer estilos para la hoja de Excel
-        var range = XLSX.utils.decode_range(ws['!ref']);
-        for (var R = range.s.r; R <= range.e.r; ++R) {
-            for (var C = range.s.c; C <= range.e.c; ++C) {
-                var cell_address = { c: C, r: R };
-                var cell_ref = XLSX.utils.encode_cell(cell_address);
-                if (!ws[cell_ref]) continue;
-                ws[cell_ref].s = {
-                    font: { name: "Arial", bold: true },
-                    fill: { patternType: "solid", fgColor: { rgb: "FFFFAA00" } }, // Color del fondo: amarillo claro
-                    border: { top: { style: "thin", color: { rgb: "000000" } }, bottom: { style: "thin", color: { rgb: "000000" } }, left: { style: "thin", color: { rgb: "000000" } }, right: { style: "thin", color: { rgb: "000000" } } }
-                };
-            }
-        }
-
-        // Agregar la hoja al libro de trabajo
-        XLSX.utils.book_append_sheet(wb, ws, 'Tabla_' + (index + 1));
+        // Concatenar los datos de la tabla actual a los datos de todas las tablas
+        allTableData = allTableData.concat(tableData);
     });
+
+    // Convertir la matriz con todos los datos de las tablas en una hoja de Excel
+    var ws = XLSX.utils.aoa_to_sheet(allTableData);
+
+    // Establecer estilos para la hoja de Excel
+    var range = XLSX.utils.decode_range(ws['!ref']);
+    for (var R = range.s.r; R <= range.e.r; ++R) {
+        for (var C = range.s.c; C <= range.e.c; ++C) {
+            var cell_address = { c: C, r: R };
+            var cell_ref = XLSX.utils.encode_cell(cell_address);
+            if (!ws[cell_ref]) continue;
+            ws[cell_ref].s = {
+                font: { name: "Arial", bold: true },
+                fill: { patternType: "solid", fgColor: { rgb: "FFFFAA00" } }, // Color del fondo: amarillo claro
+                border: { top: { style: "thin", color: { rgb: "000000" } }, bottom: { style: "thin", color: { rgb: "000000" } }, left: { style: "thin", color: { rgb: "000000" } }, right: { style: "thin", color: { rgb: "000000" } } }
+            };
+        }
+    }
+
+    // Agregar la hoja al libro de trabajo
+    XLSX.utils.book_append_sheet(wb, ws, 'Todas las Tablas');
 
     // Guardar el libro de trabajo como archivo Excel
     XLSX.writeFile(wb, 'exportacion.xlsx');
