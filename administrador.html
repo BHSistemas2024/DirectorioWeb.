@@ -688,7 +688,7 @@ function exportarExcel() {
     // Recorrer cada tabla
     tablas.forEach((tabla, index) => {
         // Agregar el nombre de la tabla como una fila
-        allData.push(['Tabla: ' + tabla.id]);
+        allData.push([tabla.id]);
 
         // Recorrer cada fila de la tabla original y añadirla a la matriz
         Array.from(tabla.rows).forEach(row => {
