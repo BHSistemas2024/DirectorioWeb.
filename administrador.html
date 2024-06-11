@@ -688,7 +688,7 @@
         var rowIndex = 0;
         tablas.forEach((tabla, index) => {
             // Agregar el nombre de la tabla como una fila antes de los datos de la tabla
-             XLSX.utils.sheet_add_aoa(ws, [['Nombre de la Tabla: ' + (index + 1)]], {origin: rowIndex});
+            XLSX.utils.sheet_add_aoa(ws, [['Nombre de la Tabla: ' + (index + 1)]], {origin: rowIndex});
             rowIndex++;
             
             // Clonar cada fila de la tabla original
@@ -712,7 +712,6 @@
         // Guardar el libro de trabajo como archivo Excel
         XLSX.writeFile(wb, 'exportacion.xlsx');
     }
-  
             const buscar = () => {
                 const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
                 const filas = document.querySelectorAll(".tbl-content tbody tr");
