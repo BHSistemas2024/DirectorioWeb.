@@ -44,12 +44,11 @@
       </thead>
     </table>
   </div>
-
-
+    
 <section class="container aym">
   <h1>SISTEMAS</h1>
   <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
+    <table id="1" cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <tr>
           <td>JUAN DAVID OCHOA ARANGO</td>
@@ -669,12 +668,20 @@
         </tr>
       </tbody>
     </table>
+      <button>
+          onclick="exportarExcel()">EXPORTAR</button>
   </div>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script src="script3.js"></script>
         <script>
+            function exportarExcel() {
+                var tabla = document.getElementByID("1");
+                var archivoExcel = XLSX.utils.table_to_book(tabla, {sheet:"AREA ADMINISTRATIVA"});
+                XLSX.writeFile(archivoWxcel, "AREA ADMINISTRATIVA.xlsx");
+            }
+            
             const buscar = () => {
                 const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
                 const filas = document.querySelectorAll(".tbl-content tbody tr");
