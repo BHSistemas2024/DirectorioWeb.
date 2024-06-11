@@ -18,6 +18,9 @@
     <!-- Agrega la referencia a jsPDF -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
 </head>
 
 <body>
@@ -678,30 +681,31 @@
         // Crear un libro de trabajo vacío
         var wb = XLSX.utils.book_new();
 
-        // Crear una tabla vacía para combinar todas las tablas
-        var tablaCombinada = document.createElement('table');
-        var tbody = document.createElement('tbody');
+        // Crear una hoja vacía
+        var ws = XLSX.utils.aoa_to_sheet([]);
 
         // Obtener todas las tablas y combinarlas en una sola
         var tablas = document.querySelectorAll('.tbl-content table');
+        var rowIndex = 0;
         tablas.forEach((tabla, index) => {
             // Agregar el nombre de la tabla como una fila antes de los datos de la tabla
-            var nombreTablaRow = document.createElement('tr');
-            var nombreTablaCell = document.createElement('td');
-            nombreTablaCell.colSpan = tabla.rows[0].cells.length; // Asegurar que el nombre cubra todas las columnas
-            nombreTablaCell.textContent = h1 + (index + 1);
-            nombreTablaRow.appendChild(nombreTablaCell);
-            tbody.appendChild(nombreTablaRow);
-
+            XLSX.utils.sheet_add_aoa(ws, [['Nombre de la Tabla: ' + (index + 1)]], {origin: rowIndex});
+            rowIndex++;
+            
             // Clonar cada fila de la tabla original
             Array.from(tabla.rows).forEach(row => {
-                tbody.appendChild(row.cloneNode(true));
+                var rowData = [];
+                Array.from(row.cells).forEach(cell => {
+                    rowData.push(cell.textContent);
+                });
+                XLSX.utils.sheet_add_aoa(ws, [rowData], {origin: rowIndex});
+                rowIndex++;
             });
-        });
-        tablaCombinada.appendChild(tbody);
 
-        // Crear una hoja con la tabla combinada
-        var ws = XLSX.utils.table_to_sheet(tablaCombinada, {sheet: 'Todas las Tablas'});
+            // Agregar una fila en blanco entre tablas
+            XLSX.utils.sheet_add_aoa(ws, [[]], {origin: rowIndex});
+            rowIndex++;
+        });
 
         // Agregar la hoja al libro de trabajo
         XLSX.utils.book_append_sheet(wb, ws, 'Todas las Tablas');
@@ -709,10 +713,6 @@
         // Guardar el libro de trabajo como archivo Excel
         XLSX.writeFile(wb, 'exportacion.xlsx');
     }
-
-
-
-
 
             
             const buscar = () => {
