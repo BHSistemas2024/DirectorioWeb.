@@ -703,7 +703,7 @@ function exportarExcel() {
     // Convertir la matriz combinada en una hoja de Excel
     var ws = XLSX.utils.aoa_to_sheet(allData);
 
-    // Establecer estilos para la tabla en Excel
+    // Agregar estilos básicos a la tabla en Excel
     var range = XLSX.utils.decode_range(ws['!ref']);
     for (var R = range.s.r; R <= range.e.r; ++R) {
         for (var C = range.s.c; C <= range.e.c; ++C) {
@@ -712,7 +712,7 @@ function exportarExcel() {
             if (!ws[cell_ref]) continue;
             ws[cell_ref].s = {
                 font: { name: "Arial", bold: false },
-                fill: { patternType: "solid", fgColor: { rgb: "FFFFAA00" } },
+                fill: { patternType: "solid", fgColor: { rgb: "FFFFFF" } },
                 border: { top: { style: "thin", color: { rgb: "000000" } }, bottom: { style: "thin", color: { rgb: "000000" } }, left: { style: "thin", color: { rgb: "000000" } }, right: { style: "thin", color: { rgb: "000000" } } }
             };
         }
