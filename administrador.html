@@ -674,44 +674,58 @@
    <button onclick="exportarExcel()">Exportar a Excel</button>
   </div>
 </section>
-
 <script>
-    function exportarExcel() {
-        // Crear un libro de trabajo vacío
-        var wb = XLSX.utils.book_new();
+function exportarExcel() {
+    // Crear un libro de trabajo vacío
+    var wb = XLSX.utils.book_new();
 
+    // Obtener todas las tablas y combinarlas en una sola
+    var tablas = document.querySelectorAll('.tbl-content table');
+    
+    // Recorrer cada tabla
+    tablas.forEach((tabla, index) => {
         // Crear una hoja vacía
         var ws = XLSX.utils.aoa_to_sheet([]);
 
-        // Obtener todas las tablas y combinarlas en una sola
-        var tablas = document.querySelectorAll('.tbl-content table');
-        var rowIndex = 0;
-        tablas.forEach((tabla, index) => {
-            // Agregar el nombre de la tabla como una fila antes de los datos de la tabla
-            XLSX.utils.sheet_add_aoa(ws, [['Nombre de la Tabla: ' + (index + 1)]], {origin: rowIndex});
-            rowIndex++;
-            
-            // Clonar cada fila de la tabla original
-            Array.from(tabla.rows).forEach(row => {
-                var rowData = [];
-                Array.from(row.cells).forEach(cell => {
-                    rowData.push(cell.textContent);
-                });
-                XLSX.utils.sheet_add_aoa(ws, [rowData], {origin: rowIndex});
-                rowIndex++;
-            });
+        // Agregar el nombre de la tabla como una fila
+        XLSX.utils.sheet_add_aoa(ws, [['Nombre de la Tabla: ' + tabla.id]], {origin: 0});
+        
+        // Incrementar el índice de fila
+        var rowIndex = 1;
 
-            // Agregar una fila en blanco entre tablas
-            XLSX.utils.sheet_add_aoa(ws, [[]], {origin: rowIndex});
+        // Recorrer cada fila de la tabla original y añadirla a la hoja
+        Array.from(tabla.rows).forEach(row => {
+            var rowData = [];
+            Array.from(row.cells).forEach(cell => {
+                rowData.push(cell.textContent);
+            });
+            XLSX.utils.sheet_add_aoa(ws, [rowData], {origin: rowIndex});
             rowIndex++;
         });
 
         // Agregar la hoja al libro de trabajo
-        XLSX.utils.book_append_sheet(wb, ws, 'Todas las Tablas');
+        XLSX.utils.book_append_sheet(wb, ws, 'Tabla_' + (index + 1));
+    });
 
-        // Guardar el libro de trabajo como archivo Excel
-        XLSX.writeFile(wb, 'exportacion.xlsx');
-    }
+    // Establecer el estilo para que las tablas tengan un formato básico
+    wb.SheetNames.forEach(sheetName => {
+        var ws = wb.Sheets[sheetName];
+        var range = XLSX.utils.decode_range(ws['!ref']);
+        for (var C = range.s.c; C <= range.e.c; ++C) {
+            var cell_address = { c: C, r: 0 };
+            var cell_ref = XLSX.utils.encode_cell(cell_address);
+            if (!ws[cell_ref]) continue;
+            ws[cell_ref].s = {
+                font: { bold: true },
+                fill: { patternType: "solid", fgColor: { rgb: "CCCCCC" } }
+            };
+        }
+    });
+
+    // Guardar el libro de trabajo como archivo Excel
+    XLSX.writeFile(wb, 'exportacion.xlsx');
+}
+
             const buscar = () => {
                 const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
                 const filas = document.querySelectorAll(".tbl-content tbody tr");
