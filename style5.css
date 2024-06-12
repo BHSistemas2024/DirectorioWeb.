@@ -36,7 +36,7 @@ h1 {
   font-size: var(--font-size-large);
   text-align: center;
   margin-bottom: 1em;
-  color: #17202A;
+  color: #ffffff;
 }
 
 table {
@@ -47,7 +47,7 @@ table {
 }
 
 .tbl-header {
-  background-color: #17202A;
+  background-color: #ffffff;
   border-radius: var(--border-radius);
 }
 
@@ -72,7 +72,7 @@ th {
 }
 
 th:hover {
-  color: #17202A;
+  color: #ffffff;
 }
 
 .input-group {
@@ -87,7 +87,7 @@ th:hover {
 }
 
 .input-group:focus-within {
-  border-color: #17202A;
+  border-color: #000000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -101,8 +101,8 @@ th:hover {
 }
 
 .input-group-addon {
-  background-color: #17202A;
-  color: #17202A;
+  background-color: #000000;
+  color: #ffffff;
   border-radius: 0 15px 15px 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
