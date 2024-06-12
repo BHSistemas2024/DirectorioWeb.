@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,600;1,600&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:wght@400;700&display=swap');
 :root {
-  background-color: #17202A; /* Color principal */
+  --main-color: #ffffff; /* Color principal */
   --secondary-color: rgb(255, 253, 253); /* Color secundario */
   --table-line-color: var(--main-color); /* Color de línea de tabla */
   --font-size-base: 1rem; /* Tamaño base */
@@ -14,7 +14,7 @@ body {
   font-family: var(--fuente-base);
   line-height: 1.6;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #17202A;
+  color: #fff;
   margin: 0;
 }
 
@@ -72,7 +72,7 @@ th {
 }
 
 th:hover {
-  color: #ffffff;
+  color: #000000;
 }
 
 .input-group {
@@ -87,7 +87,7 @@ th:hover {
 }
 
 .input-group:focus-within {
-  border-color: #000000;
+  border-color: #000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -102,7 +102,7 @@ th:hover {
 
 .input-group-addon {
   background-color: #000000;
-  color: #ffffff;
+  color: #fff;
   border-radius: 0 15px 15px 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
