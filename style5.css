@@ -87,7 +87,7 @@ th:hover {
 }
 
 .input-group:focus-within {
-  border-color: #99A3A4;
+  border-color: #FDFEFE;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -101,7 +101,7 @@ th:hover {
 }
 
 .input-group-addon {
-  background-color: #99A3A4;
+  background-color: #FDFEFE;
   color: #FDFEFE;
   border-radius: 0 15px 15px 0;
   cursor: pointer;
