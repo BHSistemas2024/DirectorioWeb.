@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,600;1,600&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:wght@400;700&display=swap');
 :root {
-  --main-color: #ffffff; /* Color principal */
+  color: #17202A; /* Color principal */
   --secondary-color: rgb(255, 253, 253); /* Color secundario */
   --table-line-color: var(--main-color); /* Color de línea de tabla */
   --font-size-base: 1rem; /* Tamaño base */
