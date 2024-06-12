@@ -60,7 +60,7 @@ table {
 th, td {
   padding: 10px; /* Ajusté el padding */
   text-align: center;
-  border-bottom: 1px solid #ffffff; /* Simplifiqué la definición del borde inferior */
+  border-bottom: 1px solid #99A3A4; /* Simplifiqué la definición del borde inferior */
   vertical-align: middle; /* Alineación vertical del texto */
 }
 
