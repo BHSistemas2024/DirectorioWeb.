@@ -27,7 +27,7 @@ body {
   max-width: 100%;
   margin: 20px auto;
   padding: 10px;
-  background-color: #000000; /* Cambia esto al color deseado */
+  background-color: #17202A; /* Cambia esto al color deseado */
   border-radius: var(--border-radius);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
