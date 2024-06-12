@@ -30,6 +30,7 @@ body {
   background-color: #17202A; /* Cambia esto al color deseado */
   border-radius: var(--border-radius);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  color: #FDFEFE
 }
 
 h1 {
