@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital@1&family=Bebas+Neue&family=Nunito+Sans:ital,opsz,wght@0,600;1,600&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:wght@400;700&display=swap');
 :root {
-  color: #99A3A4; /* Color principal */
+  --main-color: #ffffff; /* Color principal */
   --secondary-color: rgb(255, 253, 253); /* Color secundario */
   --table-line-color: var(--main-color); /* Color de línea de tabla */
   --font-size-base: 1rem; /* Tamaño base */
@@ -10,11 +10,11 @@
 }
 
 body {
-  background: #99A3A4;
+  background: var(--color-fondo);
   font-family: var(--fuente-base);
   line-height: 1.6;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #99A3A4;
+  color: #fff;
   margin: 0;
 }
 
@@ -36,7 +36,7 @@ h1 {
   font-size: var(--font-size-large);
   text-align: center;
   margin-bottom: 1em;
-  color: #99A3A4;
+  color: #ffffff;
 }
 
 table {
@@ -47,7 +47,7 @@ table {
 }
 
 .tbl-header {
-  color: #99A3A4;
+  background-color: var(--secondary-color);
   border-radius: var(--border-radius);
 }
 
@@ -60,7 +60,7 @@ table {
 th, td {
   padding: 10px; /* Ajusté el padding */
   text-align: center;
-  border-bottom: 1px solid #99A3A4; /* Simplifiqué la definición del borde inferior */
+  border-bottom: 1px solid #ffffff; /* Simplifiqué la definición del borde inferior */
   vertical-align: middle; /* Alineación vertical del texto */
 }
 
@@ -72,7 +72,7 @@ th {
 }
 
 th:hover {
-  color: #99A3A4;
+  color: #000000;
 }
 
 .input-group {
@@ -87,7 +87,7 @@ th:hover {
 }
 
 .input-group:focus-within {
-  border-color: #99A3A4;
+  border-color: #000;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -101,8 +101,8 @@ th:hover {
 }
 
 .input-group-addon {
-  background-color: #99A3A4;
-  color: #99A3A4;
+  background-color: #000000;
+  color: #fff;
   border-radius: 0 15px 15px 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -185,4 +185,3 @@ th:hover {
     border-radius: 15px;
   }
 }
-
