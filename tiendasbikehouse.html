@@ -815,23 +815,23 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script src="script3.js"></script>
         <script>
-function exportarExcel() {
+            function exportarExcel() {
     // Crear un libro de trabajo vacío
-    var wb = XLSX.utils.book_new();
+                var wb = XLSX.utils.book_new();
 
     // Crear una matriz para almacenar todos los datos de todas las tablas
-    var allTableData = [];
+               var allTableData = [];
 
     // Obtener todas las tablas con la clase tbl-content
-    var tablas = document.querySelectorAll('.tbl-content table');
+               var tablas = document.querySelectorAll('.tbl-content table');
 
     // Recorrer cada tabla
-    tablas.forEach((tabla, index) => {
+               tablas.forEach((tabla, index) => {
         // Crear una matriz para almacenar todos los datos de la tabla actual
-        var tableData = [];
+                  var tableData = [];
 
         // Agregar el nombre de la tabla como primera fila
-        tableData.push([tabla.id]);
+                  tableData.push([tabla.id]);
 
         // Recorrer cada fila de la tabla
         Array.from(tabla.rows).forEach(row => {
