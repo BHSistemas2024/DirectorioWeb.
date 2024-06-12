@@ -36,7 +36,7 @@ h1 {
   font-size: var(--font-size-large);
   text-align: center;
   margin-bottom: 1em;
-  color: #99A3A4;
+  color: #FDFEFE;
 }
 
 table {
@@ -102,7 +102,7 @@ th:hover {
 
 .input-group-addon {
   background-color: #99A3A4;
-  color: #99A3A4;
+  color: #FDFEFE;
   border-radius: 0 15px 15px 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
