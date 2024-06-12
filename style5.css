@@ -10,11 +10,11 @@
 }
 
 body {
-  background: #99A3A4;
+  background: #FDFEFE;
   font-family: var(--fuente-base);
   line-height: 1.6;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #FDFEFE;
+  color: #99A3A4;
   margin: 0;
 }
 
@@ -27,7 +27,7 @@ body {
   max-width: 100%;
   margin: 20px auto;
   padding: 10px;
-  background-color: #FDFEFE; /* Cambia esto al color deseado */
+  background-color: #99A3A4; /* Cambia esto al color deseado */
   border-radius: var(--border-radius);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   color: #FDFEFE
