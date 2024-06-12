@@ -10,11 +10,11 @@
 }
 
 body {
-  background-color: #17202A;
+  background-color: #FDFEFE;
   font-family: var(--fuente-base);
   line-height: 1.6;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #FDFEFE;
+  color: #17202A;
   margin: 0;
 }
 
