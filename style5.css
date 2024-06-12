@@ -67,7 +67,7 @@ th, td {
 th {
   font-size: var(--font-size-small);
   text-transform: uppercase;
-  color: black;
+  color: #17202A;
   transition: background-color 0.0s ease-in-out;
 }
 
