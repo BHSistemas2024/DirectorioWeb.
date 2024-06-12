@@ -815,6 +815,94 @@
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
         <script src="script3.js"></script>
         <script>
+function exportarExcel() {
+    // Crear un libro de trabajo vacío
+    var wb = XLSX.utils.book_new();
+
+    // Crear una matriz para almacenar todos los datos de todas las tablas
+    var allTableData = [];
+
+    // Obtener todas las tablas con la clase tbl-content
+    var tablas = document.querySelectorAll('.tbl-content table');
+
+    // Recorrer cada tabla
+    tablas.forEach((tabla, index) => {
+        // Crear una matriz para almacenar todos los datos de la tabla actual
+        var tableData = [];
+
+        // Agregar el nombre de la tabla como primera fila
+        tableData.push([tabla.id]);
+
+        // Recorrer cada fila de la tabla
+        Array.from(tabla.rows).forEach(row => {
+            var rowData = [];
+            // Recorrer cada celda de la fila
+            Array.from(row.cells).forEach(cell => {
+                rowData.push(cell.textContent);
+            });
+            tableData.push(rowData);
+        });
+
+        // Agregar una fila en blanco para separar las tablas
+        tableData.push([]);
+
+        // Concatenar los datos de la tabla actual a los datos de todas las tablas
+        allTableData = allTableData.concat(tableData);
+    });
+
+    // Convertir la matriz con todos los datos de las tablas en una hoja de Excel
+    var ws = XLSX.utils.aoa_to_sheet(allTableData);
+
+    // Establecer estilos para la hoja de Excel
+    var range = XLSX.utils.decode_range(ws['!ref']);
+
+    // Establecer estilos para las filas
+    for (var R = range.s.r; R <= range.e.r; ++R) {
+        var row_address = { r: R };
+        var row_ref = XLSX.utils.encode_row(R);
+        ws['!rows'] = ws['!rows'] || [];
+        ws['!rows'][R] = {
+            height: 10, // Altura de la fila en puntos
+            hidden: false, // La fila no está oculta
+            outlineLevel: 0, // Nivel de esquema de la fila
+            collapsed: false // La fila no está colapsada
+        };
+    }
+
+    // Establecer estilos para las columnas
+    for (var C = range.s.c; C <= range.e.c; ++C) {
+        var col_address = { c: C };
+        var col_ref = XLSX.utils.encode_col(C);
+        ws['!cols'] = ws['!cols'] || [];
+        ws['!cols'][C] = {
+            width: 80, // Ancho de la columna en puntos
+            hidden: false, // La columna no está oculta
+            outlineLevel: 0, // Nivel de esquema de la columna
+            collapsed: false // La columna no está colapsada
+        };
+    }
+
+    // Establecer estilos para las celdas
+    for (var R = range.s.r; R <= range.e.r; ++R) {
+        for (var C = range.s.c; C <= range.e.c; ++C) {
+            var cell_address = { c: C, r: R };
+            var cell_ref = XLSX.utils.encode_cell(cell_address);
+            if (!ws[cell_ref]) continue;
+            ws[cell_ref].s = {
+                font: { name: "Arial", bold: true },
+                fill: { patternType: "solid", fgColor: { rgb: "#FFDD99" } },
+                border: { top: { style: "thin", color: { rgb: "#EAECEE" } }, bottom: { style: "thin", color: { rgb: "#797D7F " } }, left: { style: "thin", color: { rgb: "#A04000" } }, right: { style: "thin", color: { rgb: "#F9E79F" } } }
+            };
+        }
+    }
+
+    // Agregar la hoja al libro de trabajo
+    XLSX.utils.book_append_sheet(wb, ws, 'AREA ADMINISTRATIVA');
+
+    // Guardar el libro de trabajo como archivo Excel
+    XLSX.writeFile(wb, 'area_administrativa.xlsx');
+}
+
             const buscar = () => {
                 const textoBusqueda = document.getElementById("busqueda").value.trim().toLowerCase();
                 const filas = document.querySelectorAll(".tbl-content tbody tr");
