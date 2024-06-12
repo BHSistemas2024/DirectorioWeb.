@@ -39,7 +39,7 @@
   
   /* Animación de desplazamiento */
   @keyframes desplazamiento {
-    0%, 100% {
+    10%, 100% {
       transform: translateX(-100%);
       opacity: 0;
     }
