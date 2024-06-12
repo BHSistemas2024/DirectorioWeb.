@@ -61,7 +61,7 @@
         <section class="container aym">
             <h1>ANTIOQUIA</h1>
             <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
+              <table id="ANTIOQUIA" cellpadding="0" cellspacing="0" border="0">
                 <tbody>
                   <tr>
                     <td>ANTIOQUIA</td>
@@ -222,7 +222,7 @@
           <section class="container aym">
             <h1>CARIBE</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="CARIBE" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Barranquilla -->
                         <tr>
@@ -307,7 +307,7 @@
         <section class="container aym">
             <h1>CUNDINAMARCA</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="CUNDINAMARCA" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Carrera 15 -->
                         <tr>
@@ -467,7 +467,7 @@
         <section class="container aym">
             <h1>EJE CAFETERO</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="EJE CAFETERO" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Armenia -->
                         <tr>
@@ -522,7 +522,7 @@
         <section class="container aym">
             <h1>NORTE DE SANTANDER</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="NORTE DE SANTANDER" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Bucaramanga Centro -->
                         <tr>
@@ -593,7 +593,7 @@
         <section class="container aym">
             <h1>SUR DEL PAÍS</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="SUR DEL PAÍS" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Cali Norte -->
                         <tr>
@@ -711,7 +711,7 @@
         <section class="container aym">
             <h1>HUILA</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="HUILA" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Neiva -->
                         <tr>
@@ -737,7 +737,7 @@
         <section class="container aym">
             <h1>TOLIMA</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="TOLIMA" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Ibagué -->
                         <tr>
@@ -763,7 +763,7 @@
         <section class="container aym">
             <h1>YOPAL</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="YOPAL" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Yopal -->
                         <tr>
@@ -789,7 +789,7 @@
         <section class="container aym">
             <h1>BOYACÁ</h1>
             <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
+                <table id="BOYACÁ" cellpadding="0" cellspacing="0" border="0">
                     <tbody>
                         <!-- Tunja -->
                         <tr>
@@ -817,21 +817,21 @@
         <script>
             function exportarExcel() {
     // Crear un libro de trabajo vacío
-                var wb = XLSX.utils.book_new();
+    var wb = XLSX.utils.book_new();
 
     // Crear una matriz para almacenar todos los datos de todas las tablas
-               var allTableData = [];
+    var allTableData = [];
 
     // Obtener todas las tablas con la clase tbl-content
-               var tablas = document.querySelectorAll('.tbl-content table');
+    var tablas = document.querySelectorAll('.tbl-content table');
 
     // Recorrer cada tabla
-               tablas.forEach((tabla, index) => {
+    tablas.forEach((tabla, index) => {
         // Crear una matriz para almacenar todos los datos de la tabla actual
-                  var tableData = [];
+        var tableData = [];
 
         // Agregar el nombre de la tabla como primera fila
-                  tableData.push([tabla.id]);
+        tableData.push([tabla.id]);
 
         // Recorrer cada fila de la tabla
         Array.from(tabla.rows).forEach(row => {
